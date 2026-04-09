@@ -1,0 +1,612 @@
+% preamble
+\documentclass{amsart}
+% packages
+\usepackage{amsmath} % Advanced math typesetting
+\usepackage{amsfonts} % Advanced math fonts
+\usepackage{amssymb} % Advanced math symbols
+\usepackage[utf8]{inputenc} % Unicode support (Umlauts etc.)
+\usepackage[british]{babel} % Change hyphenation rules
+\usepackage[protrusion=true,expansion=false]{microtype} % better kerning
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm} % allows theorem and environment customisation
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{lmodern} % latin modern font
+\usepackage{hyperref} % Add a link to your document
+
+
+
+\usepackage{amsmath,calligra,mathrsfs}
+
+\usepackage[toc,page]{appendix}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%% LINK COLOURS %%%
+%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{dblue}{rgb}{0,0,0.70}
+\definecolor{dgreen}{rgb}{0,0.60,0}
+\hypersetup{
+	unicode=true,
+	colorlinks=true,
+	citecolor=dgreen,
+	linkcolor=dblue,
+	anchorcolor=dblue
+}
+
+%%%%%%%%%%%%%%%%
+%%% COMMANDS %%%
+%%%%%%%%%%%%%%%%
+
+%% FONTS %%
+
+% mathsf
+\newcommand{\AC}{\ensuremath{\mathsf{AC}}}
+\newcommand{\DC}{\ensuremath{\mathsf{DC}}}
+\newcommand{\GCH}{\ensuremath{\mathsf{GCH}}}
+\newcommand{\HS}{\ensuremath{\mathsf{HS}}}
+\newcommand{\SVC}{\ensuremath{\mathsf{SVC}}}
+\newcommand{\WO}{\ensuremath{\mathsf{WO}}}
+\newcommand{\ZF}{\ensuremath{\mathsf{ZF}}}
+\newcommand{\ZFC}{\ensuremath{\mathsf{ZFC}}}
+\newcommand{\ZFA}{\ensuremath{\mathsf{ZFA}}}
+\newcommand{\CL}{\ensuremath{\mathsf{CL}}}
+\newcommand{\SCL}{\ensuremath{\mathsf{SCL}}}
+\newcommand{\ACF}{\ensuremath{\mathsf{ACF}}}
+
+
+
+\DeclareMathOperator{\FFin}{\mathscr{F}\text{\kern -3pt {\calligra\large in}}\,}
+
+\newcommand{\CFin}{\mathscr{C}}
+
+
+\newcommand{\Fin}{\textbf{\textup{Fin}}}
+\newcommand{\Der}{\textup{Der}}
+\newcommand{\seq}{\textup{seq}}
+\newcommand{\ran}{\textup{ran}}
+
+
+
+
+
+% mathoperators
+\DeclareMathOperator{\limm}{lim}
+\DeclareMathOperator{\Add}{Add}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Ord}{\textbf{Ord}}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sym}{sym}
+\DeclareMathOperator{\Card}{\textbf{Card}}
+
+
+% mathbb
+\newcommand{\bbP}{\ensuremath{\mathbb{P}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+
+% mathcal
+\newcommand{\calM}{\ensuremath{\mathcal{M}}}
+\newcommand{\calN}{\ensuremath{\mathcal{N}}}
+
+% mathscr
+
+\newcommand{\sF}{\ensuremath{\mathscr{F}}}
+\newcommand{\sG}{\ensuremath{\mathscr{G}}}
+\newcommand{\power}{\ensuremath{\mathscr{P}}}
+
+% dot symbols
+\newcommand{\dde}{\ensuremath{\dot{e}}}
+\newcommand{\ddf}{\ensuremath{\dot{f}}}
+\newcommand{\ddm}{\ensuremath{\dot{m}}}
+\newcommand{\ddx}{\ensuremath{\dot{x}}}
+\newcommand{\ddy}{\ensuremath{\dot{y}}}
+\newcommand{\ddV}{\ensuremath{\dot{V}}}
+\newcommand{\ddX}{\ensuremath{\dot{X}}}
+
+%% MADNESS (tuples) %%
+
+\newcommand{\PGF}{\ensuremath{\left\langle\mathbb{P},\mathscr{G},\mathscr{F}\right\rangle}}
+\newcommand{\ab}{{\ensuremath{\alpha,\beta}}}
+\newcommand{\gab}{{\ensuremath{\left\langle\alpha,\beta\right\rangle}}}
+\newcommand{\aba}[1]{{\ensuremath{\alpha#1,\beta#1}}}
+\newcommand{\gaba}[1]{{\ensuremath{\left\langle\alpha#1,\beta#1\right\rangle}}}
+\newcommand{\abg}{{\ensuremath{\alpha,\beta,\gamma}}}
+\newcommand{\gabg}{{\ensuremath{\left\langle\alpha,\beta,\gamma\right\rangle}}}
+\newcommand{\abga}[1]{{\ensuremath{\alpha#1,\beta#1,\gamma#1}}}
+\newcommand{\gabga}[1]{{\ensuremath{\left\langle\alpha#1,\beta#1,\gamma#1\right\rangle}}}
+
+%% PARENTHETICALS %%
+
+\newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\gen}[1]{\ensuremath{\left\langle#1\right\rangle}}
+\newcommand{\tup}[1]{\ensuremath{\langle#1\rangle}}
+
+%% RELATIONS %%
+
+\newcommand{\comp}{\ensuremath{\mathrel{\|}}}
+\newcommand{\forces}{\ensuremath{\mathrel{\Vdash}}}
+\newcommand{\res}{\ensuremath{\nobreak\mskip2mu\mathpunct{}\nonscript
+  \mkern-\thinmuskip{\upharpoonright}\mskip6muplus1mu\relax}} % copied from the definition of \colon from amssymb
+
+%% RENEWED COMMANDS %%
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\nleq}{\nleqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ngeq}{\ngeqslant}
+
+%% OTHER %%
+
+\newcommand{\1}{\ensuremath{\mathds{1}}}
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+                     =}
+\newcommand{\vphi}{\ensuremath{\varphi}}
+
+%%%%%%%%%%%%%%%%%%
+%% ENVIRONMENTS %%
+%%%%%%%%%%%%%%%%%%
+
+%% THEOREM STYLES %%
+\newtheoremstyle{boldrk}
+  {\topsep}{\topsep}
+  {}{}
+  {\bfseries}{.}
+  {5pt plus 1pt minus 1pt}{}
+
+%% THEOREM ENVIRONMENTS %%
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{mainthm}{Main Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{claim}{Claim}[thm]
+
+\theoremstyle{boldrk}
+\newtheorem*{rk}{Remark} % remark environment without numbering
+\newtheorem*{conj}{Conjecture} % remark environment without numbering
+\newtheorem{qn}[thm]{Question}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+%% OTHER ENVIRONMENTS %%
+
+\makeatletter
+\newenvironment{poc}[1][Proof of Claim]{\par
+\pushQED{{\renewcommand{\qedsymbol}{\ensuremath{\dashv}}\qed}}%
+\normalfont \topsep6\p@\@plus6\p@\relax
+\trivlist
+\item\relax
+{\itshape
+#1\@addpunct{.}}\hspace\labelsep\ignorespaces
+}{%
+\popQED\endtrivlist\@endpefalse
+}
+\makeatother % Produces a proof-like environment with an alternativ qed symbol
+
+%%%%%%%%%%%%%%%
+%% TITLEPAGE %%
+%%%%%%%%%%%%%%%
+
+% Title and authors
+\title[Class Cardinal Arithmetic]{Class Cardinal Arithmetic in ZF}
+\author{Natthajak Kamkru}
+
+\email{karagila@math.huji.ac.il}
+
+
+
+
+\date{\today}
+\keywords{Symmetric extensions, iterated forcing, iterated symmetries, symmetric iteration, axiom of choice, Hartogs number, Lindenbaum number.}
+\subjclass[2020]{Primary: 03E25; Secondary 03E35}
+
+
+\setcounter{tocdepth}{1}
+
+% main document
+\begin{document}
+
+\begin{abstract}We introduce the notion of class cardinals that are related with the studying of finiteness classes defined by Herrlich, especially in $\ZF$ set theory. There is a natural way to identify each cardinal with a class cardinal. We define an ordering and arithmetic operations on these classes in a way that coincides with the arithmetic operations of cardinals. 
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+
+One of the central concepts in the study of set theory in $\ZF$ is the notion of finiteness. An early approach by Truss \cite{Truss} is to study finiteness as classes of cardinals. This approach has been adopted by many authors. Most papers are focusing on specific finiteness notions or classes arise from various aspects. In \cite{FIF}, Herrlich define the following classes of sets.
+
+\begin{defn}
+ A class of sets $\mathcal{U}$ is called a \emph{finiteness class} if it satisfies the following conditions: 1) $\mathcal{U}$ lies between the class of all finite sets and the class of all Dedekind-finite sets. 2) $\mathcal{U}$ is hereditary, i.e., if $X\in\mathcal{U}$ and $Y$ be any set with $|Y|\leq|X|$, then $Y\in\mathcal{U}$. 
+\end{defn}
+
+
+We can see from the definition that if a set is in a finiteness class, then so are all sets with the same cardinality. Thus, morally, there should be no distinction between a finiteness class and the class of all cardinalities of sets belonging to that finiteness class. However, one significant distinction between them is that a class of cardinals can actually be a set, while finiteness classes cannot avoid containing a set of arbitrarily rank in the cumulative hierarchy. Moreover, as Herrlich pointed out in his paper, the collection of all finiteness classes cannot even be formed as a class, and we cannot say much about proper classes. Another aspect of the definition is our interest in finiteness notions beyond Dedekind-finiteness, such as cardinals whose square not equals themselves. For these reasons, we explore the following definition of the so-called class cardinal.
+
+\begin{defn}
+A \emph{hereditary class} is a class of cardinals $\Gamma$ such that if $\frak{m}\in\Gamma$ and $\frak{n}\leq\frak{m}$ then $\frak{n}\in\Gamma$.
+\end{defn}
+
+\begin{defn}
+Let $\Gamma$ be a hereditary class. A $\Gamma$-system is a collection $\{X_{\frak{m}}:\frak{m}\in\Gamma\text{ and }|X_{\frak{m}}|=\frak{m}\}$ and $\{X_{\frak{m}}\xrightarrow{f_{\frak{m},\frak{n}}} X_{\frak{n}}:\frak{m}\leq\frak{n}\}$. A limit of a hereditary class $\Gamma$ is the cardinality of a direct limit of a $\Gamma$-system.   
+\end{defn}
+
+\begin{defn}
+     A hereditary class is called a \emph{class cardinal} if it is a set and $\limm\Gamma\in\Gamma$. We denote the class of all class cardinals by $\CFin$.
+\end{defn}
+
+Another reason to exclude proper classes is that all of hereditary classes we interested in are appeared to be sets in most of constructions we have. Blass proved that $\SVC$ holds in all symmetric extensions and all permutation models whose collection of atoms are sets. Herrlich et al. are also proved that $\SVC$ implies that the class $\Delta$ is bounded above. Later, we will also prove that $\Delta(\kappa)=\{\frak{m}:\kappa\not\leq\frak{m}\}$ are also bounded above for any well-orderable cardinal $\kappa$. The following theorem showed that the boundedness is equivalent to being a class cardinal. 
+
+
+
+\begin{thm}
+ A hereditary class $\Gamma$ is a class cardinal if and only if there exists a cardinal $\frak{m}$ such that $\frak{n}\leq\frak{m}$ for any $\frak{n}\in\Gamma$.   
+\end{thm}
+
+\begin{proof}
+  Let $\Gamma$ be a class cardinal and let $X=\bigcup\{\bigcup\frak{p}:\frak{p}\in\Gamma\}$. Note that for any cardinal $\frak{q}$, $\frak{q}\leq |\bigcup\frak{q}|$ by the definition of cardinal. So for any $\frak{q}\in\Gamma$, $\frak{q}\leq |X|=\sum_{\frak{p}\in\Gamma}|\bigcup\frak{p}|$.  Conversely, let $X$ be a a set of cardinality $\frak{m}$ such that $\frak{n}\leq\frak{m}$ for any $\frak{n}\in\Gamma$. We have that $\Gamma$ is a subset of the set $\{|Y|:Y\subseteq X\}$, and hence $\Gamma$ is a set.  
+\end{proof}
+
+We can define an ordering and arithmetic structures on $\CFin$ as follows.
+\begin{defn}
+Let $\Gamma$ and $\Lambda$ be class cardinals.
+\begin{itemize}
+    \item  We write $\Lambda\leq\Gamma$ if $\Lambda\subseteq\Gamma$, and we denote $\CFin_{\Gamma}=\{\Lambda\in\CFin:\Lambda\leq\Gamma\}$. 
+     \item $\Gamma+\Lambda=\{\frak{m}:\frak{m}\leq\frak{p}+\frak{q}\text{ for some }\frak{p}\in\Gamma\text{ and }\frak{q}\in\Lambda\}$.
+    \item $\Gamma\cdot\Lambda=\{\frak{m}:\frak{m}\leq\frak{p}\cdot\frak{q}\text{ for some }\frak{p}\in\Gamma\text{ and }\frak{q}\in\Lambda\}$.
+\end{itemize}
+\end{defn}
+
+
+  
+There are several results on size, ordering and arithmetic of $\Delta$. For example, $\ZF+\Delta\neq\omega$ implies $|\Delta|\geq2^{\aleph_{0}}$ provided by Truss; for any infinite ordinal $\lambda$ it is relatively consistent with $\ZFA$ to have that $|\Delta|=2^{\lambda}$ by Jean and Arthur Rubin; it is relatively consistent with $\ZF+\exists$ inaccessible cardinal that $\Delta$ is a model of Peano Arithmetic by Sageev. There are a natural identifications from $\Delta$ to $\CFin_{\Delta}$, or more generally from $\Card$ to $\CFin$ given by the following.
+
+\begin{defn}
+    For a cardinal $\frak{m}$, we define $\Phi(\frak{m})=\{\frak{n}:\frak{n}\leq\frak{m}\}.$
+\end{defn}
+
+It is easily verified that $\Phi(\frak{m})\neq\Phi(\frak{n})$ for any $\frak{m}\neq\frak{n}$. This definition is analogous to $\Fin(X)=\{Y:|Y|\leq |X|\}$ defined by Herrlich. Note that this identification is compatible with an ordering and arithmetic structures of cardinals.
+
+\begin{thm}
+ Let $\Gamma$ and $\Lambda$ be class cardinals and $\frak{m}$ be a cardinal.  
+ \begin{itemize}
+     \item $\Phi(\frak{m})=\Gamma+\Lambda$ if and only if $\frak{m}=\frak{p}+\frak{q}$ for some cardinals $\frak{p}$ and $\frak{q}$, with $\Gamma=\Phi(\frak{p})$ and $\Lambda=\Phi(\frak{q})$.
+    \item $\Phi(\frak{m})=\Gamma\cdot\Lambda$ if and only if $\frak{m}=\frak{p}\cdot\frak{q}$ for some cardinals $\frak{p}$ and $\frak{q}$, with $\Gamma=\Phi(\frak{p})$ and $\Lambda=\Phi(\frak{q})$.
+\end{itemize}
+\end{thm}
+
+
+
+
+
+\section{Preliminaries}\label{s:preliminaries}
+
+\subsection{Framework}
+
+In this paper, we work in $\ZF$ and will use the definition of cardinals by Scott \cite{Scott}: The cardinality of a set $X$ is a set $\{Y\in V_{\alpha}:Y\text{ is equipotent with }X\}$, where $\alpha$ is the least rank of the cumulative hierarchy such that exists a set equipotent with $X$. From this definition, given $\frak{m}\in V_{\gamma}$, any $\frak{n}\leq\frak{m}$ are in $V_{\gamma}$, and hence $\Phi(\frak{m})\in V_{\gamma+1}$ is a set.  
+
+Note that we did not make an exception for cardinalities of ordinals, since we want to separate a well-ordered cardinal $\kappa$ and its representative $\Phi(\kappa)$. For example, $|0|=\{0\}$ and $\Phi(|0|)=\{|0|\}$. That is $\CFin\cap\Ord=\emptyset$.
+
+\subsection{Notion of finiteness}
+
+There are several notations for each finiteness, defined by different authors. I will pick some of them and present here. Note that we have names for notions of finite, classes of sets and classes of cardinals.
+
+\begin{defn}
+ Let $X$ be a set.
+ \begin{enumerate}
+     \item $X$ is called \emph{Dedekind-finite or D-finite} if it satisfies the following equivalent assetions:\begin{itemize}
+         \item there is no injection from $\omega$ to $X$.
+         \item $|X|+1>|X|$.
+     \end{itemize} 
+   The class of Dedekind-finite sets and cardinals are denoted by $\mathcal{D}$ and $\Delta$ respectively.
+   
+\item $X$ is called \emph{dually Dedekind-finite or dD-finite} if there is no surjective non-injective function on $X$.
+   The class of dually Dedekind-finite sets and cardinals are denoted by $\mathcal{D}_{d}$ and $\Delta_{5}$ respectively.
+   
+     \item $X$ is called \emph{weakly Dedekind-finite or wD-finite} if it satisfies the following equivalent assetions:\begin{itemize}
+         \item there is no surjection from $X$ to $\omega$.
+         \item there is no function from $X$ to $\omega$ with an infinite range.
+     \end{itemize} 
+   The class of weakly Dedekind-finite sets and cardinals are denoted by $\mathcal{D}_{w}$ and $\Delta_{4}$ respectively.
+
+   \item $X$ is called \emph{amorphous} if there is no partition of $A$ into two infinite sets. The class of amorphous sets and cardinals are denoted by $\mathbb{A}$ and $\Delta_{1}$ respectively.
+   \item The class of finite sets and cardinals are denoted by $\Fin$ and $\omega$ respectively.
+ \end{enumerate}
+\end{defn}
+
+\subsection{Axioms}
+
+{Small violations of choice ($\SVC$)}
+\noindent In both [16HHT] and [HL], there is a common axiom that play an important role, that is small violations of choice ($\SVC$), which states as follow: There is a set $S$ such that, for any set $X$, there exist an ordinal $\alpha$ and a
+surjection $S\times\alpha\to X$. 
+
+
+
+\section{Class cardinal arithmetic}\label{s:closure}
+
+
+
+
+
+So we introduce more restrictive definition of classes as follows.
+
+\begin{defn}
+    A finiteness class $\mathcal{U}$ is called
+    \begin{itemize}
+        \item \emph{additive} if $X,Y\in\mathcal{U}$ $\Rightarrow$ $X\cup Y\in\mathcal{U}$.
+        \item \emph{multiplicative} if $X,Y\in\mathcal{U}$ $\Rightarrow$ $X\times Y\in\mathcal{U}$.
+    \end{itemize}    
+    The class of all additive finiteness classes and all multiplicative finiteness classes are denoted by $\FFin_{+}$ and $\FFin_{\times}$ respectively.
+\end{defn}
+
+Note that if $\mathcal{U}$ is multiplicative then $\mathcal{U}$ is additive since $|A\cup B|\leq|A\times B|$ for any nonempty sets $A$ and $B$. These properties are already studied for important classes. For example, $\mathcal{D}$ and $\mathcal{D}_{w}$ are multiplicative. We will explore the structure of additive classes and multiplicative classes. Next, we define a useful notation.
+
+\begin{defn}
+Let $X$ be a set. Define the following,
+\begin{itemize}
+    \item $\Fin_{+}(X)=\{Y:|Y|\leq n|X|\text{ for some }n\in\omega\},$
+    \item $\Fin_{\times}(X)=\{Y:|Y|\leq |X^{n}|\text{ for some }n\in\omega\}.$
+\end{itemize}
+\end{defn}
+
+\begin{thm}
+ For any Dedekind-finite set $X$, $\Fin_{+}(X)$ and $\Fin_{\times}(X)$ is the smallest additive and multiplicative finiteness class containing $X$ respectively.   
+\end{thm}
+
+\begin{proof}
+ $\Fin_{+}(X)$ being herditary is follows from the definition. Since $X$ is Dedekind-finite, $\aleph_{0}\nleq |X|$, and thus $\aleph_{0}\nleq m|X|$ for any $m\in\omega$. To see that $\Fin_{+}(X)$ is additive, let $Y,Z\in \Fin_{+}(X)$. So $|Y|\leq p|X|$ and $|Z|\leq q|X|$ for some $p,q\in\omega$. Hence $|Y\cup Z|\leq |Y|+|Z|\leq p|X|+q|X|=(p+q)|X|$. 
+
+ Similarly for $\Fin_{\times}(X)$, it is herditary and does not contain $\omega$. To see that $\Fin_{\times}(X)$ is additive, let $Y,Z\in \Fin_{\times}(X)$. So $|Y|\leq |X^{p}|$ and $|Z|\leq |X^{q}|$ for some $p,q\in\omega$. Hence $|Y\times Z|\leq |Y|\times|Z|\leq |X^{p}|\times|X^{q}|=|X^{p+q}|$. 
+\end{proof}
+
+The following are some results in [H] that ask about the existence of immediate successor and predecessor of a finiteness class.
+
+\begin{thm} The following statements are true.
+\begin{enumerate}
+    \item $\Fin$ has no immediate successor: For every finiteness class $\mathcal{U}$ with $\mathcal{U}\neq\Fin$ there exists a finiteness class $\mathcal{V}$ with $\Fin\subsetneq\mathcal{V}\subsetneq\mathcal{U}$. 
+    \item $\mathcal{D}$ has no immediate predecessor: For every finiteness class $\mathcal{U}$ with $\mathcal{U}\neq\mathcal{D}$ there exists a sequence $\{\mathcal{U}_{i}\}_{i\in\omega}$ of finiteness classes such that $\mathcal{U}\subsetneq\mathcal{U}_{1}\subsetneq\mathcal{U}_{2}\subsetneq\cdot\cdot\cdot\subsetneq\mathcal{D}$.
+\end{enumerate}
+\end{thm}
+
+\noindent We ask the same question analogously for additive and multiplicative classes.
+
+\begin{thm}
+   If $A$ is amorphous, then $\Fin_{+}(A)$ is an additive immediate successor of $\Fin$. 
+\end{thm}
+
+\begin{proof}
+Let $X\in\Fin_{+}(A)\setminus\Fin$. We have that $|X|\leq n|A|$ for some $n\in\omega$. Note that any subset of $A$ are finite or cofinite. So $|X|=i|B|+j$ for some $i,j\in\omega$ and for some cofinite subset $B$ of $A$ (If $B_{0},...,B_{l}$ are cofinite subsets of $A$, then $\bigcap_{k<l}B_{k}$ is cofinite and $B_{k}\setminus \bigcap_{k<l}B_{k}$'s are finite). So for any another $Y\in \Fin_{+}(A)$, which $|Y|=i'|B'|+j'$ for some $i,j\in\omega$ and cofinite $B'$. Pick some $t\in\omega$ such that $ti>i'$. Thus $|Y|=i'|B'|+j'=(i'|B'\cap B|)+(i'|B'\setminus B|+j')\leq ti|B|+|B|=(t+1)|X|$. Hence $\Fin_{+}(A)=\Fin_{+}(X)$.
+\end{proof}
+
+\noindent Before we talk about a predecessor of a class, let we introduce some notations.
+
+\begin{defn}
+ For any classes $\mathcal{U}$ and $\mathcal{V}$, let
+ \begin{itemize}
+     \item $\mathcal{U}+\mathcal{V}$ to be the smallest additive class containing $\mathcal{U}$ and $\mathcal{V}$.
+     \item $\mathcal{U}\cdot\mathcal{V}$ to be the smallest multiplicative class containing $\mathcal{U}$ and $\mathcal{V}$.
+ \end{itemize}
+\end{defn}
+
+\begin{thm} Let $\mathcal{U}$ and $\mathcal{V}$ be classes of sets.
+\begin{enumerate}
+    \item If $\mathcal{U}$ and $\mathcal{V}$ are additive then,
+    \\ $\mathcal{U}+\mathcal{V}=\{X:|X|\leq|U\cup V|\text{ for some }U\in\mathcal{U}\text{ and }V\in\mathcal{V}\}$,
+    \item If $\mathcal{U}$ and $\mathcal{V}$ are multiplicative then,
+    \\ $\mathcal{U}\cdot\mathcal{V}=\{X:|X|\leq|U\times V|\text{ for some }U\in\mathcal{U}\text{ and }V\in\mathcal{V}\}$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}1) Let $\mathcal{W}=\{X:|X|\leq|U\cup V|\text{ for some }U\in\mathcal{U}\text{ and }V\in\mathcal{V}\}$. It is straightforward to show that $\mathcal{W}$ is a finiteness class. 
+
+To see that $\mathcal{W}$ is additive, let $W,W'\in\mathcal{W}$. So there are $U,U'\in\mathcal{U}$ and $V,V'\in\mathcal{V}$ such that $|W|\leq |U\cup V|$ and $|W'|\leq |U'\cup V'|$. Since finiteness classes are cardinality invariant, so we may assume that $U, U', V $ and $V'$ are pairwise disjoint. Since $\mathcal{U}$ and $\mathcal{V}$ are additive, $U\cup U'\in\mathcal{U}$ and $V\cup V'\in\mathcal{V}$. Thus $|W\cup W'|\leq |W|+|W'|\leq |U\cup V|+|U'\cup V'|\leq|U|+|U'|+|V|+|V'|=|(U\cup U)'\cup( V\cup V')|$.
+
+Let $\mathcal{T}$ be an additive class containing $\mathcal{U}$ and $\mathcal{V}$. Since $\mathcal{T}$ is additive, so $U\cup V\in\mathcal{T}$ for any $U\in\mathcal{U}\subseteq\mathcal{T}$ and $V\in\mathcal{V}\subseteq\mathcal{T}$. Hence $\mathcal{W}\subseteq\mathcal{T}$ since $\mathcal{T}$ is hereditary.
+
+2) Most part is similar to the proof of 1). We will only show that $\mathcal{W}=\{X:|X|\leq|U\times V|\text{ for some }U\in\mathcal{U}\text{ and }V\in\mathcal{V}\}$ is multiplicative. Let $W,W'\in\mathcal{W}$. So there are $U,U'\in\mathcal{U}$ and $V,V'\in\mathcal{V}$ such that $|W|\leq |U\times V|$ and $|W'|\leq |U'\times V'|$. Thus $|W\times W'|\leq |(U\times V)\times(U'\times V')|=|(U\times U)'\times( V\times V')|$.
+    
+\end{proof}
+
+The concepts of additive and multiplicative classes are closely related to the cancellation laws. There are both additive and multiplicative versions of these laws. The additive version can be proven in the most generality easily. However, the multiplicative version is challenging to prove even in the simplest cases and remains open in many cases. Therefore, when we refer to the cancellation law, we are referring to the multiplicative one. In this paper, we use the following version: The Strong Cancellation Law for Dedekind-finite cardinals $(\SCL_{\mathcal{D}})$: For any Dedekind-finite cardinals $\mathfrak{n}, \mathfrak{p},$ and $\mathfrak{q}$, if $\mathfrak{n} \cdot \mathfrak{p} \leq \mathfrak{n} \cdot \mathfrak{q}$, then $\mathfrak{p} \leq \mathfrak{q}$. For more details about the cancellation law, see Appendix A.
+
+\begin{thm}\label{canplus}
+  For any Dedekind-finite cardinals $\frak{p},\frak{q}$ and $\frak{r}$, if $\frak{p}+\frak{r}=\frak{q}+\frak{r}$ then $\frak{p}=\frak{q}$.  
+\end{thm}
+
+\begin{proof}
+Let $A$ be a set such that there is a bijection $F:X\to Y$ between subsets $X$ and $Y$ of $A$. Assume without the loss of generality that $F$ has no fixed point (otherwise we can restrict $F$ to non-fixed points). We will prove that there is a bijection between $A\setminus X$ and $A\setminus Y$. Consider each $x\in X\setminus Y$. Since $A$ is Dedekind-finite, the sequence $F(x),F^{2}(x),...$ is repetitive or there is some $k$ such that $F^{k}(x)\in Y\setminus X$. Note that it cannot be repetitive, otherwise $F^{n}(x)=F^{m}(x)$ for some $n<m$ and thus $x=F^{m-n}(x)\in Y$ which is impossible. So there is some $k$ such that $F^{k}(x)\in Y\setminus X$, say $y_{x}=F^{k}(x)$. Hence we have a bijection from $A\setminus Y$ to $A\setminus X$ defined by $x\mapsto y_{x}$ if $x\in X\setminus Y$ and leave other points fixed.   
+\end{proof}
+
+The following Lemma \ref{seq11} and Lemma \ref{toseq11} are used to prove a result about immediate predecessor of $\mathcal{D}$.
+
+
+\begin{lem}\label{seq11}
+If $X\in\mathcal{D}\setminus\Fin$ then $\seq^{1-1}(X)\in\mathcal{D}$.  
+\end{lem}
+
+\begin{proof}
+ Let $X$ be a set. Assume that there is an injection $f:\omega\to \seq^{1-1}(X)$. Then we have a $\omega$-sequence on $\bigcup_{n\in\omega}\ran(f(n))$ indexed by the first appearance in $f$. 
+\end{proof}
+
+\begin{lem}\label{toseq11}
+For any cardinal $\frak{m}$ and any $k\in\omega$, $\frak{m}^{k}\leq\seq^{1-1}(\frak{m})$.    
+\end{lem}
+
+\begin{proof}
+Let $X$ be a set. Pick some     
+\end{proof}
+
+\begin{thm}
+The class $\mathcal{D}$ has no additive immediate predecessor.
+\end{thm}
+
+\begin{proof}
+  Assume that there is an additive immediate predecessor class $\mathcal{U}$ of $\mathcal{D}$. Then for any $X\in\mathcal{D}\setminus\mathcal{U}$, we have $\mathcal{D}=\mathcal{U}+\Fin_{+}(X)$. 
+  By Lemma \ref{seq11}, $\seq^{1-1}(X)\in\mathcal{D}$.
+  So $|\seq^{1-1}(X)|\leq|U\cup (n\times X)|$ for some $U\in\mathcal{U}$ and some $n\in\omega$. By Lemma \ref{toseq11}, $|X^{n}|\leq|\seq^{1-1}(X)|$ for any $m\in\omega$.   
+\end{proof}
+
+
+
+\begin{thm}
+$\SCL_{\mathcal{D}}$ implies that the class $\mathcal{D}$ has no multiplicative immediate predecessor.
+\end{thm}
+
+\begin{proof}
+   Assume that there is a multiplicative immediate predecessor class $\mathcal{U}$ of $\mathcal{D}$. Then for any $X\in\mathcal{D}\setminus\mathcal{U}$, we have $\mathcal{D}=\mathcal{U}\cdot\Fin_{\times}(X)$. 
+  By Lemma \ref{seq11}, $\seq^{1-1}(X)\in\mathcal{D}$.
+  So $|\seq^{1-1}(X)|\leq|U\times X^{n}|$ for some $U\in\mathcal{U}$ and some $n\in\omega$. By Lemma \ref{toseq11}, we have $|X^{n+1}|\leq|\seq^{1-1}(X)|$. So $|X^{n+1}|\leq |U\times X^{n}|$, and thus $|X|\leq |U|$ by $\SCL_{\mathcal{D}}$. Hence $X\in\mathcal{U}$, which is a contradiction.  
+\end{proof}
+
+
+
+
+
+\section{Derived classes}\label{s:derived}
+
+\noindent Given a class $\mathcal{U}$ and a class function $F$, we have a new derived class $$\Der(\mathcal{U},F)=\{X:F(X)\in\mathcal{U}\}.$$
+It is well-known that a set $A$ is weakly Dedekind-finite iff $\mathcal{P}(A)$ is Dedekind-finite. In \cite{Peter}, they study derived notions of finiteness.
+
+
+\section{Variants of a statement defined by classes}\label{s:axiom}
+
+Axioms often comes with referring to a class of sets. For example, the Countable Axiom of Choice: Every countable family of non-empty sets has a choice function. It referred to the class of countable sets. So, for any classes of sets $\mathcal{U}$ and $\mathcal{V}$, we might generalize $\AC$ as follows. $\AC(\mathcal{U},\mathcal{V})$: Every family idexed by some $I\in\mathcal{U}$ of non-empty sets in $\mathcal{V}$ has a choice function.
+
+
+One way to describe Dedekind-finite sets is that they have a Hartogs number $\leq\aleph_{0}$. Also, weakly Dedekind-finite sets are exactly sets for which Lindenbaum number $\leq\aleph_{0}$. There is a recent questions on the possible collection of Hartogs-Lindenbaum pairs appear in a model $M$ of $\ZF$. That is pairs of cardinals $(\lambda,\kappa)$ such that $M\vDash\exists X( \aleph(X)=\lambda \text{ and }\aleph^{*}(X)=\kappa$). In [HL], they focused this question on models of $\SVC$. We define new classes by Hartogs and Lindenbaum numbers.
+
+
+\begin{defn}For a well-oredered cardinal $\kappa$. Define the following class cardinals,
+\begin{equation*}
+    \Delta_{H}({\kappa}):=\{\frak{m}:\aleph(\frak{m})\leq\kappa\}\text{ and }
+    \Delta_{L}({\kappa}):=\{\frak{m}:\aleph^{*}(\frak{m})\leq\kappa\}.
+\end{equation*}
+\end{defn}
+
+In [16HHT], they proved using $\SVC$ that the class $\Delta=\Delta_{H}(\aleph_{0})$ is bounded above. We generalize this results to $\Delta_{H}(\kappa)$ for arbitrary $\kappa$.
+
+
+\begin{thm}
+$\SVC$ implies that for each $\kappa$, there exists a set $A_{\kappa}$ such that, $X\in\Delta_{H}(\kappa)\Rightarrow X\leq A_{\kappa}$. Hence, $\SVC$ implies that every $\kappa$-finiteness classes are bounded above with respect to $\leq$.    
+\end{thm}
+
+
+An interesting aspect is that, we may think of $\mathcal{H}^{\aleph_{1}}\setminus\mathcal{H}^{\aleph_{0}}$ as a higher analogue of $\mathcal{H}^{\aleph_{0}}\setminus\Fin$. So for each finiteness class, is there an analogue $\aleph_{1}$-class to it? The following definition and theorem shold be a partial answer to that question.
+
+\begin{defn}
+ $\mathbb{A}^{\kappa}=\{X: X\text{ cannot be written as a union of two $\mathcal{H}^{\kappa}$-infinite sets}\}.$  
+\end{defn}
+
+\begin{thm}
+ If $A\in\mathbb{A}^{\kappa^{+}}\setminus\mathcal{H}^{\kappa}$ , then $\Fin^{\kappa}_{+}(A)$ is an additive immediate successor of $\mathcal{H}^{\kappa}$.  
+\end{thm}
+
+\begin{proof}
+    
+\end{proof}
+
+
+
+
+
+
+
+\appendix
+\section{The Cancellation Law}
+
+\noindent The question of whether \( n \cdot \mathfrak{p} = n \cdot \mathfrak{q} \) implies \( \mathfrak{p} = \mathfrak{q} \) for arbitrary cardinals \(\mathfrak{p}\) and \(\mathfrak{q}\) seems very simple at a first glance. However, even a great mathematician such as Sierpiński struggled to solve this for the case \( n > 2 \). There is a long history of the cancellation law in \(\mathsf{ZF}\) (see a detailed overview in \cite{HK}), and we present here a brief timeline:
+
+\begin{enumerate}
+    \item[1905] Bernstein proof the cancellation law for $n=2$ and arbitrary \( \mathfrak{p} = \mathfrak{q} \).
+    \item[1922] Sierpiński gives a simpler proof of the same theorem.
+    \item[1926] Lindenbaum and Tarski claim to have a proof for case $n=3$.
+    \item[1949] Tarski proof the cancellation law for arbitrary natural number $n$.
+\end{enumerate}
+
+\noindent First, we want to pointed out that there are two kinds of cancellation laws, the
+cancellation law ($\CL$): If $n\cdot\frak{p}= n \cdot \mathfrak{q}$ then $\frak{p}=\frak{q}$ and
+the strong cancellation law ($\SCL$): If $n\cdot\frak{p}\leq n \cdot \mathfrak{q}$ then $\frak{p}\leq\frak{q}$. Note that $\SCL$ implies $\CL$ and Tarski actually proved $\SCL$.
+
+
+Later, Doyle and Conway claimed to have a simpler proof of the theorem for the case \( n=3 \) in \cite[1994]{dv3}, which was criticized by Hinkis in \cite[2013]{HK} for requiring the Axiom of Choice in their proof. However, neither of them mentioned any further possible generalizations of the theorem. I have noticed that there is a discussion on this topic on MSE: ``Are infinite Dedekind-finite cardinals `cancellable' in \(\ZF\)?'' \cite[2022]{mse} and in the answer of user 471959/$\mathcal{H}$olo, we know that it is relatively consistent with $\ZF$ that every Dedekind-finite cardinals are comparable, and hence for arbitrary Dedekind-finite cardinals $\frak{p},\frak{q}$ and $\frak{n}$, $\frak{n}\cdot\frak{p}\leq\frak{n}\cdot\frak{q}$ implies $\frak{p}\leq\frak{q}$ (by Sageev in \cite{comp}). He also said\\[0.4em] ``After reading a little bit more of "The Universal Properties of Dedekind Finite Cardinals", it appears to be that Ellentuck actually proved that with $\ACF$ (families of non-empty finite sets have a choice function) we have $\frak{p}\cdot \frak{n}=\frak{p}\cdot\frak{m}\Rightarrow\frak{n}=\frak{m}$
+ for all non-zero Dedkind finite $\frak{p},\frak{n},\frak{m}$, even without linear order. Gershon Sageev claims that Ellentuck proved the above without the use $\ACF$, but I couldn't find such proof'',\\[0.4em] which I disagree with once I read the paper. If I interpreted his meaning correctly, he referred to Lemma 5 in \cite{universal}, which looks like the cancellation law if, for any Dedekind-finite sets $A$ and $B$, we let $k=1$, $\Phi_{0}(X) := A \times X$, and $\Phi_{1}(X) := B \times X$. But these functions are not combinatorial operators, which require that they map $\Fin^{k}$ to $\Fin$, and the proof requires such a condition to work.
+
+Here I will give a cancellation law for some slightly general outside the class of finite sets, which might be the simplest case.
+
+\begin{thm}
+    For any Amorphous cardinals $\frak{n},\frak{p}$ and $\frak{q}$, if $\frak{n}\cdot \frak{p}=\frak{n}\cdot\frak{q}$ then $\frak{p}=\frak{q}$.
+\end{thm}
+
+\begin{proof}
+    Let $A,B$ and $C$ be amorphous sets such that there is a bijection $F:A\times B\to A\times C$. Pick some $a_{0}\in A$, then $f(b):=F(a_{0},b)$ is an injection from $B$ to $A\times C$. Let $L=\{a\in A:\exists b\in B \hspace{0.1cm}\exists c\in C, f(b)=(a,c)\}$.
+
+    \emph{\underline{Case 1}} $L$ is finite. Note that $\{f^{-1}[\{a\}\times C]:a\in L\}$ form a partition of $B$. So there exists a unique $a_{1}\in L$ such that $f^{-1}[\{a_{1}\}\times C]$ is infinite, and thus cofinite since $B$ is amorphous. So $\pi_{C}\circ f$ is an injection from a cofinite subset $f^{-1}[\{a_{1}\}\times C]$ of $B$, say $B'$ into $C$. If $C\setminus(\pi_{C}\circ f)[B']$ is infinite, then $C$ can be decomposed as two infinite sets, which is impossible. So $C\setminus(\pi_{C}\circ f)[B']$ is finite, and thus $|B|$ and $|C|$ is of finite difference, hence $B$ and $C$ are comparable. Either $|B|<|C|$ or $|B|>|C|$ yields $|A|\cdot|B|\neq|A|\cdot|C|$. Hence $|B|=|C|$.
+
+    \emph{\underline{Case 2}} $L$ is infinite, and thus cofinite. 
+\end{proof}
+
+Note that the most possible general hereditary class that satisfies $\CL$ must be finiteness class, since $\omega$ will equalize distinct finite cardinals.
+I hope that at some point we can actually prove or disprove the following conjecture.\\
+\begin{conj}[The Strong Cancellation Law for Dedekind-finite cardinals ($\SCL_{\mathcal{D}}$)]
+    For any cardinals $\frak{p}$ and $\frak{q}$ and any Dedekind-finite cardinal $\frak{n}$, $$\frak{n}\cdot\frak{p}\leq\frak{n}\cdot\frak{q}\text{ implies }\frak{p}\leq\frak{q}.$$ 
+\end{conj}
+
+
+
+
+
+\bibliographystyle{amsplain}
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{Scott}
+Scott, Dana (1955), "Definitions by abstraction in axiomatic set theory" (PDF), Bulletin of the American Mathematical Society, 61 (5): 442
+
+\bibitem{FIF}
+Horst Herrlich, The finite and the infinite, Applied Categorical Structures, 19, (2011) pp.455-468.
+
+\bibitem{Truss}
+John Truss, Classes of Dedekind finite cardinals, \emph{Fundamenta Mathematicae} 84.3 (1974): 187-208.
+
+\bibitem{Peter}
+Ladislav Spišiak and Peter Vojtáš, Dependences between definitions of finiteness. \emph{Czechoslovak Mathematical Journal} 38.3 (1988) 389-397.
+
+\bibitem{dv3}
+Peter G. Doyle and John H. Conway, Division by three, arXiv:math/0605779, 1994.
+
+\bibitem{HK}
+Arie Hinkis, \emph{Proofs of the Cantor–Bernstein theorem. A mathematical excursion}. In: Knoblock, E., Kragh, H., Remmert, V. (eds.) Science Networks. Historical Studies 45. Springer, Heidelberg (2013)
+
+\bibitem{mse}
+Tan (https://math.stackexchange.com/users/814070/tan), Are infinite Dedekind-finite cardinals “cancellable” in $\sf ZF$?, URL (version: 2022-10-05): \url{https://math.stackexchange.com/q/4545282}
+
+\bibitem{comp}
+Gershon Sageev, A model of ZF + there exists an inaccessible, in which the dedekind cardinals constitute a natural non-standard model of arithmetic. \emph{Annals of Mathematical Logic},
+Volume 21, Issues 2–3,
+1981,
+Pages 221-281
+
+\bibitem{universal}
+Erik Ellentuck, The Universal Properties of Dedekind Finite Cardinals, \emph{Annals of Mathematics} Vol. 82, No. 2 (Sep., 1965), pp. 225-248
+
+\end{thebibliography}
+
+
+
+\end{document}
