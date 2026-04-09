@@ -1,0 +1,328 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% This is a template file for ''collection of        %%%%%%%%%%%%%
+%%%%%%%%%%%%%                abstract and full papers''             %%%%%%%%%%%%%
+%%%%%%%%%%%%% Authors should submit papers according to this format %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,12pt,review]{article} % After your paper has been reviewed, please change the option from `review' to `final'.
+\usepackage{AMM}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Your additional packages %%%%
+% \usepackage{   }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx,amsmath,latexsym,amssymb,amsthm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% THEOREM - COROLLARY - LEMMA - %%%
+%%% PROPOSITION - DEFINITION -    %%%
+%%% REMARK - EXAMPLE Environments %%%
+%
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+%
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+%
+\numberwithin{equation}{section}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\seq}{\textup{seq}}
+\newcommand{\ran}{\textup{ran}}
+\renewcommand{\restriction}{\mathord{\upharpoonright}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   YOUR MATHS ABBREVIATIONS         %%%
+%%%   The followings are only examples %%%
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Ima}{Im}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   ADD PAPER TITLE/AUTHOR LIST      %%%
+
+%% Use \\ for an explicit newline character
+%% e.g.
+\papertitle{Some remarks on the set of injections and the set of surjections on a set}
+%%
+%\papertitle{Title of your paper (Line 1) xxx xxx xxx xxx xxx xxx xxx xxx xxx 
+%xxx 
+%Title of your paper (Line 2)}
+%\shortauthorlist{N}
+
+\author[1]{Natthajak Kamkru}
+\author[2]{Nattapon Sonpanow\thanks{Corresponding author}}
+
+\affil[1,2]{Department of Mathematics and Computer
+Science, Faculty of Science, Chulalongkorn
+University, Bangkok, Thailand}
+
+\email[1]{\texttt{natthajakntk@gmail.com}}
+\email[2]{\texttt{nattapon.so@chula.ac.th}}
+
+\subject{03E25} % using a comma in order to separate the list
+\keywords{Cardinal, Axiom of Choice}  % using a comma in order to separate your list 
+%of keywords
+
+%% For debugging purpose
+%% Should be removed in the final version
+%\usepackage{lipsum}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%% For debugging purpose
+%% Should be removed in the final version
+
+\maketitle
+
+\begin{abstract}
+We provide some conditions on an infinite set $A$ which imply that the set of bijections on $A$ is equinumerous to the set of injections on $A$ or the set of surjections on $A$ in the absence of the Axiom of Choice.
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% If a speaker would like to submit the full paper, please use the following guideline otherwise ignore it.
+
+\section{Introduction}
+% To cite refences listed in the bibliography use, for example, \cite{chen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% below are various environment templates you might need
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+For any sets $A$ and $B$, we say that $|A|=|B|$ or $A\approx B$ if there is a bijection between $A$ and $B$, and $|A|\leq|B|$ or $A\preceq B$ if there is an injection from $A$ to $B$.
+
+One of the most widely used foundation of mathematics is the Zermelo–Fraenkel set theory (ZF) with the Axiom of Choice (AC). There are many equivalent forms of AC. One of them is the cardinal comparability, which states that for any sets $A$ and $B$, $|A|\leq |B|$ or $|B|\leq|A|$. Without AC, the cardinal comparability does not hold in general. In this paper we work in ZF without AC.
+
+For any set $A$, let $A^{A}$ be the set of all functions on $A$, $\mathcal{P}(A)$ be the power set of $A$ and $S(A)=\{f\in A^{A}:f \text{ is bijective}\}$. Dawson and Howard showed in \cite{DH} that $|\mathcal{P}(A)|=|S(A)|$ for any infinite set $A$ in ZF with AC. Moreover, without AC, we cannot conclude any relationship between $|\mathcal{P}(A)|$ and $|S(A)|$ for an arbitrary infinite
+set $A$. In this paper we consider the set $I(A)=\{f\in A^{A}:f \text{ is injective}\}$ and $J(A)=\{f\in A^{A}:f \text{ is surjective}\}$. It is clear that $S(A)\subseteq I(A)$ and $S(A)\subseteq J(A)$.
+
+
+
+\begin{defn}
+A set $A$ is said to be Dedekind-finite if there is no injection from $\omega$ to $A$, and is said to be $\Delta_{5}$ if there is no surjection from $A$ to $A\cup\{b\}$ for any set $b\not\in A$. 
+\end{defn}
+
+These are some variants of finiteness which are studied in set theory without AC. Some properties of them are similar to those of finite sets. For example, any subset of a Dedekind-finite set is also Dedekind-finite, and any subset of a $\Delta_{5}$ set is also $\Delta_{5}$. Moreover, any finite set is $\Delta_{5}$, and any $\Delta_{5}$ set is Dedekind-finite.
+
+We have shown in \cite{my} that if $A$ is a union of a Dedekind-finite set and an infinite ordinal then $S(A)\approx I(A)$. In this paper, we prove that $S(A)\approx I(A)$ under a weaker condition on the set $A$. Also, we show that if a set $A$ is a union of a $\Delta_{5}$ set and an infinite ordinal, then $S(A)\approx J(A)$.
+
+Let us recall some definitions and facts about ordinals. An \emph{ordinal} is a set $\alpha$ which is transitive (that is, if $X\in\alpha$ then $X\subseteq\alpha$) and $(\alpha,\in)$ is a well-ordered set. Some primary examples are natural numbers:
+\begin{align*}0=\emptyset,\hspace{0.2cm} 1=\{0\},\hspace{0.2cm} 2=\{0,1\},\hspace{0.2cm} 3=\{0,1,2\},\text{ and so on}.\end{align*} The set of natural numbers $\omega=\{0,1,2,...\}$ is also an ordinal. Note a fact that any well-ordered set $(X,\leq)$ is isomorphic to an ordinal. So ordinals can be regarded as representatives of well-ordered sets.
+
+We finish this section by listing some facts which will be used in the next section.
+
+\begin{thm}
+For any well-ordered sets $A$ and $B$ such that $A$ or $B$ is infinite, 
+\begin{equation*}
+|A \cup B| = |A \times B| = \max\{|A|,|B|\}.
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+This is a basic knowledge in set theory (see, e.g., \cite{E}).
+\end{proof}
+
+\begin{thm}
+For any infinite well-ordered set $A$, $|S(A)| = |\mathcal{P}(A)|$.
+\end{thm}
+
+\begin{proof}
+Cf. \cite[Theorem 1.2]{DH}.
+\end{proof}
+
+\begin{thm}
+    For any sets $A$ and $B$ such that $A\cap B=\emptyset$, $S(A)\times S(B)\preceq S(A\cup B)$. As a result, for any sets $A$ and $B$, $S(A)\times S(B)\preceq S((A\times\{0\})\cup (B\times\{1\}))$.
+\end{thm}
+
+\begin{proof}
+    Define a function $F:S(A)\times S(B)\to S(A\cup B)$ by $F(p,q)=p\cup q$. This $F$ is injective since $p=F(p,q)\restriction A$ and $q=F(p,q)\restriction B$. Hence, $S(A)\times S(B)\preceq S(A\cup B)$.
+\end{proof}
+
+\begin{thm}
+    For an arbitrary set $A$, $A$ is Dedekind-finite if and only if $S(A)=I(A)$, and $A$ is $\Delta_{5}$ if and only if $S(A)=J(A)$.
+\end{thm}
+
+\begin{proof}
+    Cf. \cite[Theorem 3.2 and 3.3]{my}.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+
+\noindent In our proofs, we write $id_{A}$ for the identity function on a set $A$.
+
+\begin{thm}
+    For any set $A$, if $A=B\cup C$ where $B$ is Dedekind-finite and $C$ is a set such that $C\times\omega\approx C$, then $S(A)\approx I(A)$.
+\end{thm}
+
+\begin{proof}
+Without loss of generality, let us assume that $C$ and $\{0,1\}\times\omega\times C$ are disjoint. As $B$ is Dedekind-finite, so is $B\setminus \bigl(C\cup (\{0,1\}\times\omega\times C)\bigr)$. So, without loss of generality, we assume that $B$ and $C\cup (\{0,1\}\times\omega\times C)$ are disjoint.
+
+Consider any injection $p:A\to A$ and any $b\in B\setminus \ran(p)$. Since $p$ is injective and $p(b)\neq b$, elements in the sequence $p(b),p^{2}(b),...$ are all distinct. Since $B$ is Dedekind-finite, it is impossible that all elements in the sequence are in $B$. We denote by $b_{p}\in C$ the first appearance of an element of $C$ in the sequence. Note that for each distinct $b$ and $b'$ in $B\setminus \ran(p)$, $b_{p}\neq b'_{p}$ by the injectivity of $p$. 
+
+Define a function $F:I(A)\to S\bigl(A\cup (\{0,1\}\times\omega\times C)\bigr)$ by 
+\begin{align*}
+F(p) &= p\cup \{((0,n+1,b_{p}),(0,n,b_{p})):n\in\omega\text{ and }b\in B\setminus \ran(p)\} \\
+& \hspace{2em} \cup\{((0,0,b_{p}),b):b\in B\setminus \ran(p)\} \\
+& \hspace{2em} \cup \{((1,n+1,c),(1,n,c)):n\in\omega\text{ and }c\in C\setminus \ran(p)\} \\
+& \hspace{2em} \cup\{((1,0,c),c):c\in C\setminus \ran(p)\} \cup id_{L_p}
+\end{align*}
+where 
+\begin{equation*}
+L_p=\{(0,n,x):n\in\omega\text{ and } x\in C\setminus\{b_{p}:b\in B\setminus \ran(p)\}\} \cup \{(1,n,x):n\in\omega\text{ and } x\in C\cap\ran(p)\}.
+\end{equation*}
+For each $p,q\in I(A)$ such that $F(p)=F(q)$, we have $p=F(p)\restriction A =F(q)\restriction A=q$. Hence, $F$ is an injection. So we have $I(A)\preceq S\bigl(A\cup (\{0,1\}\times\omega\times C)\bigr)$. Since $C\times\omega\approx C$, $B\cup C\cup (\{0,1\}\times\omega\times C)\approx B\cup(\omega\times C)\approx B\cup C=A$. Therefore, $I(A)\preceq S(A)$. We clearly have $S(A)\preceq I(A)$. So $I(A)\approx S(A)$.
+\end{proof}
+
+
+\begin{lem}\label{lem1}
+    For any sets $C$ and $D$, if $D$ is $\Delta_{5}$, $C\subseteq D$ and $p:C\to D$ is a surjection, then $C=D$ and $p$ is a bijection on $D$.
+\end{lem}
+
+\begin{proof}
+    Since $D$ is $\Delta_{5}$, so is $C$. Assume that $C\neq D$. Pick some $d\in D\setminus C$. Define a function $q:C\to C\cup\{d\}$ by $q(c)=p(c)$ if $p(c)\in C$ and $q(c)=d$ otherwise. Obviously $q$ is a surjection from $C$ onto $C\cup\{d\}$. Thus $C$ is not $\Delta_{5}$ which is impossible. So $C=D$. Now, $p\in J(D)$ and we know that $J(D)=S(D)$ since $D$ is $\Delta_{5}$. Hence, $p\in S(D)$.
+\end{proof}
+
+\begin{thm}
+    For any set $A$, if $A = B\cup\alpha$ where $B$ is $\Delta_{5}$ and $\alpha$ is an infinite ordinal, then $S(A)\approx J(A)$.
+\end{thm}
+
+\begin{proof}
+    As $B$ is $\Delta_{5}$, so is $B\setminus\alpha$. So, without loss of generality, we assume that $B$ and $\alpha$ are disjoint. Fix a countably infinite set $D=\{d_{i}:i\in\omega\}$ such that $d_{i}\neq d_{j}$ for any $i\neq j$, which is disjoint from $\alpha$. Also, fix an injection $F:\mathcal{P}((\alpha\cup D)\times(\alpha\cup D))\to S(\alpha)$. This is possible since $\alpha\cup D\approx \alpha$ and $\alpha$ is an infinite well-ordered set.
+    
+    Consider each $p\in J(A)$. For each $a\in A$, let $p^{-\infty}_{a}=\{x\in A:p^{n}(x)=a\text{ for some }n\in\omega\}$. Let $B_{p}=\{b\in B:p^{-\infty}_{b}\subseteq B \}$. For each $\theta\in\alpha$, $p(\theta)\not\in B_{p}$ by the definition of $B_{p}$. Also, for each $b\in B\setminus B_{p}$, there are some ordinal $\gamma\in\alpha$ and some $n\in\omega$ such that $p^{n}(\gamma)=b$; so $p(b)\not\in B_{p}$ as $p^{n+1}(\gamma)=p(b)$. Thus $p^{-1}[B_{p}]\subseteq B_{p}$. Since $B$ is $\Delta_{5}$, so is $B_{p}$. Observe that $p\restriction p^{-1}[B_{p}]$ is a surjection from $p^{-1}[B_{p}]$ to $B_{p}$. Thus $p^{-1}[B_{p}]=B_{p}$ and $p\restriction B_{p}\in S(B_{p})$ by Lemma \ref{lem1}. This also implies that $p\restriction (\alpha\cup(B\setminus B_{p}))\in (\alpha\cup(B\setminus B_{p}))^{(\alpha\cup(B\setminus B_{p}))}$.
+    
+ 
+     Note that $\omega\times\alpha$ is well-ordered by the lexicographic ordering. We define a function from $B\setminus B_{p}$ to $\omega\times\alpha$ by sending $b$ to the least $(n,\gamma)\in\omega\times\alpha$ such that $p^{n}(\gamma)=b$. Clearly this map is injective. So $B\setminus B_{p}$ is well-ordered by the induced ordering. Moreover, since $B$ is Dedekind-finite, so is $B\setminus B_{p}$. As a well-ordered Dedekind-finite set must be finite, we can write $B\setminus B_{p}=\{c_{0},...,c_{k-1}\}$ in an increasing order for some $k\in\omega$. Let 
+     \begin{equation}
+         \hat{p}=\biggl(\bigcup_{i<k}\{(i,c_{i}),(c_{i},i)\}\biggr)\cup id_{\omega\setminus k}\cup (p\restriction B_{p}).
+     \end{equation}
+     Define an injection $H:B\setminus B_{p}\to D$ by $H(c_{i})=d_{i}$ for all $i<k$. Let \begin{equation}
+       \begin{aligned}
+         \Tilde{p}=&\{(x,y):x,y\in\alpha\text{ and }p(x)=y\}\\&\cup\{(x,H(c)):x\in\alpha,\hspace{0.2cm} c\in B\setminus B_{p}\text{ and }p(x)=c\}\\ 
+        &\cup\{(H(c),y):c\in B\setminus B_{p},\hspace{0.05cm} y\in\alpha\text{ and }p(c)=y\}\\&\cup\{(H(c),H(c')):c,c'\in B\setminus B_{p}\text{ and }p(c)=c'\}.
+    \end{aligned}
+     \end{equation} Note that $\hat{p}\in S(B\cup\omega)$ and $\Tilde{p}\in \mathcal{P}((\alpha\cup D)\times(\alpha\cup D))$.
+
+    Define a function $G:J(A)\to S(B\cup\omega) \times S(\alpha)$ by $G(p)=(\hat{p},F(\Tilde{p}))$. To see that $G$ is injective, let $p,q\in J(A)$ be such that $G(p)=G(q)$. Then $\hat{p}=\hat{q}$ and, as $F$ is injective, $\Tilde{p}=\Tilde{q}$. Consider (2.1) for $p$ and $q$. Recall that $B\cap\omega=\emptyset$. So, members of $B$ which are sent by $\hat{p}$ to natural numbers are exactly those in $B\setminus B_{p}$. Similarly for $\hat{q}$. As $\hat{p}=\hat{q}$, we obtain $B\setminus B_{p}=B\setminus B_{q}$; thus $B_{p}=B_{q}$. Then, by (2.1) again, we can see that $p\restriction B_{p}=q\restriction B_{q}$. Next, consider (2.2) for $p$ and $q$. Recall that $B\cap\alpha=\emptyset$, $H:B\setminus B_{p}\to D$ is injective, and $B_{p}=B_{q}$. We can see that $\Tilde{p}=\Tilde{q}$ implies $p\restriction (\alpha\cup(B\setminus B_{p}))=q\restriction (\alpha\cup(B\setminus B_{q}))$. Hence, $p=q$.
+
+    Since $S(B\cup\omega) \times S(\alpha) \preceq S\bigl(((B\cup\omega)\times\{0\})\cup (\alpha\times\{1\})\bigr)\approx S(A)$, we have that $J(A)\preceq S(A)$. We clearly have $S(A)\preceq J(A)$. Hence, $J(A)\approx S(A)$.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Discussions}
+
+We have shown in \cite{my} that $I(A)\preceq J(A)$ for any set $A$, and it is not provable in ZF that ``$S(A)\approx J(A)$ for any infinite set $A$" (provided that ZF is consistent). However, it is still open that the statement ``$S(A)\approx I(A)$ for any infinite set $A$" is provable in ZF or not.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+
+%%%% Please order the surname of the first author alphabetically
+
+
+%Reference to a journal publication:
+
+\bibitem{DH}
+J. W. Dawson and P. E. Howard, {\it Factorials of infinite cardinals}, Fundamenta Mathematicae \textbf{93}, 185-195 (1976).
+
+\bibitem{E}
+H. B. Enderton, {\it Elements of Set Theory}, Academic Press (1977).
+
+\bibitem{my} 
+N. Kamkru and N. Sonpanow, {\it The set of injections and the set of surjections on a set}, Mathematical Logic Quarterly, (submitted).
+
+
+%Reference to a book:
+
+
+
+
+%Reference to a web source:
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgements}
+
+\end{acknowledgements}
+
+
+
+\section{Bibliography note}
+We use amsrefs bibliography style that normally use lowercase alphabets. Note that a capitalized character must be enclosed with a pair of curly brackets. The references are sorted by authors' names. Refer to amsrefs package \url{http://mirrors.ctan.org/macros/latex/contrib/amsrefs/amsrdoc.pdf} for more detail.
+
+\section{Disucssion}
+
+
+\begin{ex}
+From \cite{Matsumura}, xxx
+\end{ex}
+
+
+We see from \cite{m49} that xxxxx
+\begin{thm}
+abc
+\begin{equation}
+x+y\leq 2
+\end{equation}
+\end{thm}
+
+\begin{proof}
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+\end{proof}
+
+\begin{cor}
+cdefg
+\end{cor}
+
+\begin{prop} \cite{chen}
+cdefg
+\end{prop}
+
+\begin{lem}
+cdf
+\end{lem}
+
+\begin{prop}
+dfg
+\end{prop}
+
+Moreover, \cite{web1} suggests that xxxx
+
+\begin{cor}
+aaaa
+\end{cor}
+
+\begin{rem}
+eee
+\end{rem}
