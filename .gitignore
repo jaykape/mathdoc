@@ -1,0 +1,40 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.loa
+*.mtc*
+*.maf
+*.dpth
+*.md5
+*.auxlock
+
+# Temporary files
+*~
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+desktop.ini
+
+# Build directory
+build/
+dist/
