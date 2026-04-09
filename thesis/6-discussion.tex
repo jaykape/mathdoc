@@ -1,0 +1,26 @@
+\chapter{Discussion}
+
+% Summarise your key findings
+% Give your interpretations
+% Discuss the implications
+\section{Summary of Findings}
+From the results of comparing our proposed circuits with other quantum comparator circuit from literature, we can see that using Maslov's relative phase optimising techniques is a promising approach to optimise circuit cost defined by C-Not count and Qiskit cost. Comparator circuit is a very small compare to most problem specific oracle circuits. We can see a huge improvement on C-Not count and Qiskit cost even from optimising comparator circuit which suggests that if we use the same techniques on larger and more complex circuit, its cost should be reduced with higher efficiency.
+
+Another perspective to the results is that as we know more device properties, in this case its native elementary gate. Given the correct cost factor with respected to each device to minimise, every circuit should be able to become smaller and much more efficient.
+
+For the real device results, we can see strong signs that output has some correlation with the ideal output states with only the fourth qubit high error rate. We expect that by using error read out mitigation scheme, we might be able to see better results. With the three devices we tested on, it seems that shallow depth circuit might be able incorporate our proposed quantum circuit while still not losing all the quantum properties of the qubit after computation ends. 
+
+% Acknowledge the limitations
+It is important to note that our scope of optimisation in this thesis is to reduce C-Not count and Qiskit cost, but another significant factor one should consider when running on real device is circuit depth. As can be seen from Table \ref{tab:compresult}, one might wonder why ripple comparator cost is in $O(n^2)$, it is due to the fact that parts of ripple comparator can be perform in parallel. Parallel or multi-quantum computer given large enough input might have lower circuit depth and circuit cost for each quantum computer. 
+
+
+% State your recommendations
+\section{Future Work}
+Maslov's technique of turning parts of circuit into relative phase variant and later readjust the phase back is only one technique to be used. There still are many parts available to be optimised, such as combining two RMAJ gate to permute states of five inputs instead of three at a time. Another interesting circuit to optimise is the adder circuit since it is a very important subroutine which is used by many algorithms such as Shor's factoring and some oracles of optimisation problems. A good candidate for base adder is from \citep{Wang2016}, which can also be used with the same relative phase techniques. 
+
+
+\section{Open Problems}
+As suggested in \citep{Maslov2016}, it is hard to systematically synthesise relative phase version of circuits. Computer-aided Design (CAD), evolutionary algorithm, or machine learning algorithm might be able to help us find better circuits. A new cost function might need to be considered to better suit newer devices since there is progress on adding more native elementary two-qubit gate to superconducting device \cite{Abrams2019}. There might even be a better scheme than relative phase version to optimise as there might be a connection between balancing circuit cost and ancilla count and it will be much more important for devices with larger qubits in the near future. 
+
+% What to leave out of the discussion
+% Checklist

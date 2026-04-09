@@ -1,0 +1,192 @@
+\chapter{Consistency Results}
+
+
+In this section we give some consistency results which show that most relations among $I(\frak{m})$, $J(\frak{m})$, $\frak{m}^\frak{m}$, $\seq(\frak{m})$ and $\seq^{1-1}(\frak{m})$ for infinite cardinals $\frak{m}$ shown in the previous chapter are the best possible results in ZF. We use permutation models, which are discussed in the preliminaries. In what follows, for any $a_{0},a_{1},...,a_{n}\in A$, we write $(a_0; a_1; \dotsc; a_n)$ for the cyclic permutation on $A$ such that $a_0 \mapsto a_1 \mapsto \dotsc \mapsto a_n \mapsto a_0$ which fixes other elements in $A$.
+
+\noindent\textbf{Remark.} We can see that the proofs of Theorems \ref{IS} and \ref{JSomega} in the previous chapter can also be done in ZFA (see the modification of ZFA from ZF in Section 2.5). Thus these theorems hold in every permutation model.
+
+
+\section{The basic Fraenkel model}
+
+Let $\mcal{V}_{F_{0}}$ denote the \emph{basic Fraenkel model}, which is a permutation model induced by the normal ideal $\fin(A)$ where $A$ is a denumerable set of atoms and $\mcal{G}$ is the set of all permutations on $A$. Note a fact that $A$ is infinite Dedekind-finite in $\mcal{V}_{F_{0}}$ (see, e.g., \cite{Jech}).
+
+\begin{lemma}\label{VF0lemma}
+Let $p:A\to A$ be a function with a finite support $E$. Then $p[\m(p)]\subseteq E$, and consequently $p[E]\subseteq E$. Moreover, $\m(p)\subseteq E$ or $p[A\setminus E]=\{e\}$ for some $e\in E$.
+\end{lemma}
+
+\begin{proof}
+Let $p:A\to A$ be a function with a finite support $E$. Assume that there exists some $a\in p[\m(p)]\setminus E$. Then there is an element $a'\in A$ such that $a'\neq a$ and $p(a')=a$. Since $E$ is finite, we can pick an element $b\in A\setminus E$ such that $b\neq a$ and $b\neq a'$. Let $\pi=(a;b) $. Then $\pi \in \fix(E)$ and we have that $(\pi p)(\pi a')=\pi(p(a'))=\pi(a)=b\neq a=p(a')=p(\pi a')$. Hence $\pi p\neq p$ where as $\pi\in\fix(E)$ and $E$ is a support of $p$, which is a contradiction. Thus $p[\m(p)]\subseteq E$. Consider each $e\in E$. If $e$ is a fixed point of $p$ then clearly $p(e)\in E$. If $e\in\m(p)$ then $p(e)\in p[\m(p)]\subseteq E$.
+
+Now, assume that there exists some $a\in \m(p)\setminus E$. Consider any $b\in A\setminus E$ such that $b\neq a$. We have that $\pi=(a;b)\in\fix(E)$ and thus $p(b)=p(\pi a)=(\pi p)(\pi a)=\pi(p(a))=p(a)$ (as $p(a)\in p[\m(p)]\subseteq E$). So $p\restriction (A\setminus E)$ is a constant function with a value in $E$. 
+\end{proof}
+
+\begin{theorem}\label{VF0IJ}
+In $\mcal{V}_{F_{0}}$, $S(A) = I(A) = J(A)$, consequently, its cardinal is incomparable with each of $|\seq^{1-1}(A)|$, $|\seq(A)|$ and $|2^A|$.
+\end{theorem}
+
+\begin{proof}
+In $\mcal{V}_{F_{0}}$, since $A$ is Dedekind-finite, $I(A)=S(A)$ by Theorem \ref{IS}. Note that $A$ is infinite. Then, for any function $p$ on $A$ in $\mcal{V}_{F_{0}}$, if $p[X]$ is a singleton for some subset $X$ of $A$ such that $A\setminus X$ is finite, then $p$ cannot be surjective. Thus, from Lemma \ref{VF0lemma}, any surjection on $A$ in $\mcal{V}_{F_{0}}$ has finitely many non-fixed points, and hence must be a bijection. The rest follows from the facts that, in $\mcal{V}_{F_{0}}$, $|S(A)|$ is incomparable with each of $|\seq^{1-1}(A)|$, $|\seq(A)|$, and $|2^A|$ (see \cite[Theorem 3.1]{SonVej2019} and \cite[Theorem 2.17]{DH}).
+\end{proof}
+
+\begin{theorem}\label{VF0prelast}
+In $\mcal{V}_{F_{0}}$, $|\seq(A)|$ and $|A^A|$ are incomparable.
+\end{theorem}
+
+\begin{proof}
+Since $S(A)\subseteq A^{A}$, by Theorem \ref{VF0IJ}, $A^{A}\not\preceq \seq(A)$. Next, since $\seq(A)$ is Dedekind-infinite, we can show that $\seq(A)\not\preceq A^{A}$ by proving that $A^{A}$ is Dedekind-finite. Assume that there is an injection $F:\omega\to A^{A}$ with a finite support $E$. Then for any $\pi\in \fix(E)$ and any $k\in\omega$, we have that $\pi(F(k))=(\pi F)(\pi(k))=F(\pi(k))=F(k)$. Thus, for any $k\in\omega$, $E$ must be a support of $F(k)$. Say $E=\{e_{1},\dotsc,e_{n}\}$. From Lemma \ref{VF0lemma}, we have that, in $\mathcal{V}_{F_{0}}$, $$\ran(f)\subseteq\{f\in A^{A}:E  \text{ is a support of }f \}\subseteq$$$$ \{f\in A^{A}:\m(f)\cup f[\m(f)]\subseteq E\}\cup \bigcup\limits^{n}_{i=1}\{f\in A^{A}:f[A\setminus E]=\{e_{i}\} \text{ and } f[E]\subseteq E\},$$ which is a finite set but $\omega$ is infinite in $\mathcal{V}_{F_{0}}$. This contradicts the injectivity of $F$.
+\end{proof}
+
+\begin{theorem}\label{VF0last}
+In $\mcal{V}_{F_{0}}$, $|2^{A}|<|A^{A}|$.
+\end{theorem}
+
+\begin{proof}
+ Fix some distinct $a_{0},a_{1}\in A$. Define a function $f:2\to A$ by $f(i)=a_{i}$. Clearly $f$ has a support $\{a_{0},a_{1}\}$. Define a function $F:2^A \rightarrow A^A$ by $F(p)=f\circ p$. Then $F$ is a non-surjective injection with a support $\{a_{0},a_{1}\}$. Assume that there is a bijection $G:A^{A}\to 2^{A}$. Then $F\circ G\in I(A^{A})\setminus S(A^{A})$. From the proof of Theorem \ref{VF0prelast}, we have that $A^A$ is Dedekind-finite and hence $I(A^{A})= S(A^{A})$ by Theorem \ref{IS}, which is impossible.
+\end{proof}
+
+
+
+
+
+\section{The ordered Mostowski model}
+
+Let $\mcal{V}_{M}$ denote the \emph{ordered Mostowski model}. This model is induced by the normal ideal $\fin(A)$ where $A=\{a_{q}:q\in \mathbb{Q}\}$ is the set of atoms with a linear ordering $<^{M}$ such that the map $a_{q}\mapsto q$ from $A$ to $\mathbb{Q}$ is an isomorphism, and $\mcal{G}$ is the set of all order-preserving permutations on $A$. Note a fact that each set in $\mcal{V}_{M}$ has a $\subseteq$-least support and $A$ is Dedekind-finite in $\mcal{V}_{M}$ (see, e.g., \cite{Jech}).
+
+Suppose $E=\{e_{0},\dotsc,e_{n-1}\}$ is the least support of a set $X$ in $\mcal{V}_{M}$ where $e_{0}<^{M}\dotsc<^{M}e_{n-1}$. Let $M_{0,X}=\{a\in A:a<^{M}e_{0}\}$, $M_{i,X}=\{a\in A:e_{i-1}<^{M}a<^{M}e_{i}\}$ for $0<i<n$ and $M_{n,X}=\{a\in A:e_{n-1}<^{M}a\}$. Note that $M_{i,X}\cap E=\emptyset$ for all $i\leq n$.
+
+\begin{lemma}\label{VMlemma}
+Let $p:A\to A$ be a function with a least support $E=\{e_{0},\dotsc,e_{n-1}\}$ where $e_{0}<^{M}\dotsc<^{M}e_{n-1}$. Then $p[\m(p)]\subseteq E$, and consequently $p[E]\subseteq E$. Moreover, for each $i\leq n$, $p\restriction M_{i,p}=id_{M_{i,p}}$ or $p[M_{i,p}]=\{e\}$ for some $e\in E$.
+\end{lemma}
+
+\begin{proof}
+ Let $p$ be a function on $A$ with the least support $E=\{e_{0},\dotsc,e_{n-1}\} $ where $ e_{0}<^{M}\dotsc<^{M}e_{n-1}$. Let $a\in \m(p)$. Assume that $p(a)\notin E$. Since $E$ is finite and $A$ is dense, there exist $b,b'\in A$ such that $b<^{M}p(a)<^{M}b'$ and $\{x\in A: b\leq^{M} x\leq^{M} b'\}\cap (E\cup \{a\})=\emptyset$. Since $a\in\m(p)$, $a\neq p(a)$. So we can pick $\pi\in \fix(E)$ such that $\pi(a)=a$ but $\pi(p(a))\neq p(a)$, which is a contradiction. Thus, $p[\m(p)]\subseteq E$. Consider each $e\in E$. If $e$ is a fixed point of $p$ then clearly $p(e)\in E$. If $e\in\m(p)$ then $p(e)\in p[\m(p)]\subseteq E$.
+
+Consider each $i\leq n$. Assume that there is some $a\in M_{i,p}\cap \m(p)$. Then $a\not\in E$ and, since $a\in\m(p)$, we have that $p(a)\in E$. Let $b\in M_{i,p}$. As above, we can pick a permutation $\pi\in\fix(E)$ such that $\pi(a)=b$. Then $p(b)=p(\pi(a))=(\pi p)(\pi(a))=\pi(p(a))=p(a)$. Hence, $p[M_{i,p}]=\{p(a)\}$.
+\end{proof}
+
+\begin{lemma}\label{VMadd}
+   In $\mcal{V}_{M}$, $A^{A}$ is Dedekind-finite. 
+\end{lemma}
+
+\begin{proof}
+Assume that there is an injection $F:\omega\to A^{A}$ with a support $E$. Note that $\sigma m=m$ for any $m\in\omega$ and any $\sigma\in\fix(E)$. So $\sigma (F(m))=F(\sigma m)=F(m)$ for any $\sigma\in\fix(E)$. Thus, for any $p\in\ran(F)$, $\sigma p=p$ for all $\sigma\in\fix(E)$, which implies that $E$ is also a support of $p$. By Lemma \ref{VMlemma}, for each finite subset $E'$ of $A$, there are finitely many functions on $A$ with the least support $E'$. Since $E$ is finite, there are finitely many subsets of $E$, and hence there are finitely many functions on $A$ with a support $E$, which is impossible since $\ran(F)$ is infinite.
+\end{proof}
+
+\begin{theorem}\label{seqseq}
+ It is provable in \textup{ZFA} that for any set $B$, $\seq(\seq(B))\approx\seq(B)$.
+\end{theorem}
+
+\begin{proof}
+Fix some $c\not\in B$. Define a function $F:\seq(\seq(B))\to\seq(B\cup\{c\})$ by $F(\langle s_{0},...,s_{n-1}\rangle)=s_{0}^{\frown}\langle c\rangle^{\frown}...^{\frown}\langle c\rangle^{\frown}s_{n-1}$. Obviously $F$ is an injection, and thus $\seq(\seq(B))\preceq\seq(B\cup\{c\})$. 
+
+Pick some distinct $b_{1},b_{2}\in B$. We have an injection from $B\cup\{c\}$ to $\seq(B\setminus\{b_{1}\})$ defined by $b\mapsto\langle b\rangle$ for any $b\in B\setminus\{b_{1}\}$, and $b_{1}\mapsto \langle b_{2},b_{2}\rangle$ and $c\mapsto\emptyset$. So $B\cup\{c\}\preceq\seq(B\setminus\{b_{1}\})$. Thus $\seq(B\cup\{c\})\preceq\seq(\seq(B\setminus\{b\}))$. A similar method from the above paragraph yields $\seq(\seq(B\setminus\{b\}))\preceq\seq((B\setminus\{b\})\cup\{b\})=\seq(B)$. Thus $\seq(B\cup\{c\})\preceq\seq(B)$.
+
+
+Obviously $B\preceq\seq(B)$, and thus $\seq(B)\preceq\seq(\seq(B))$. Hence $\seq(\seq(B))\preceq\seq(B\cup\{c\})\preceq\seq(B)\preceq\seq(\seq(B))$, which implies $\seq(\seq(B))\approx\seq(B)$.
+\end{proof}
+
+\begin{theorem}\label{VMprelast}
+In $\mcal{V}_{M}$, $|A^{A}| < |\seq(A)|$.
+\end{theorem}
+
+\begin{proof}
+Let $p\in A^{A}$ with a least support $E=\{e_{0},\dotsc,e_{n-1}\}$ where $e_{0}<^{M}\dotsc<^{M}e_{n-1}$. By Lemma \ref{VMlemma}, for each $i\leq n$, $p\restriction M_{i,p} = id_{M_{i,p}}$ or $p\restriction M_{i,p}$ is a constant map with a value in $E$. For each $i\leq n$, let $c_{i,p}=\emptyset$ if $p\restriction M_{i,p} = id_{M_{i,p}}$; otherwise, let $c_{i,p}$ be the value of the constant map $p\restriction M_{i,p}$. Define a function $G:A^{A}\to \seq(\seq(A\cup\{\emptyset\}))$ by $G(p)=\langle \langle e_{0},\dotsc,e_{n-1}\rangle, \langle p(e_{0}),\dotsc,p(e_{n-1})\rangle, \langle c_{0,p},\dotsc,c_{n,p}\rangle \rangle$. We will show that $G$ is injective. Let $p,q\in A^{A}$ be such that $G(p)=G(q)$.
+Say $G(p)=G(q)=\langle\langle x_{0},\dotsc,x_{l-1}\rangle,\langle y_{0},\dotsc,y_{l-1}\rangle,\langle z_{0},\dotsc,z_{l}\rangle\rangle$. Hence $E=\{x_{0},\dotsc,x_{l-1}\}$ is the least support of $p$ and $q$ by the definition of $G$, and for each $i<l$, we have $p(x_{i})=y_{i}=q(x_{i})$. Then for each $i\leq l$, we have $M_{i,p}=M_{i,q}$. Say $M_{i}=M_{i,p}=M_{i,q}$. Thus for each $a\in M_{i}$, we have that $p(a)=z_{i}=q(a)$ if $z_{i}\in E$, and $p(a)=a=q(a)$ if $z_{i}=\emptyset$. Hence, $p=q$.
+As $A\cup\{\emptyset\} \preceq \seq(A)$, we obtain $A^A \preceq \seq(\seq(A\cup\{\emptyset\}))\preceq \seq(\seq(\seq(A))) \approx \seq(\seq(A)) \approx \seq(A)$ (applying Theorem \ref{seqseq} twice). The fact that $A^{A}\not\approx \seq(A)$ follows from the fact that $A^{A}$ is Dedekind-finite (by Lemma \ref{VMadd}) and $\seq(A)$ is Dedekind-infinite. 
+\end{proof}
+
+\begin{theorem}\label{VMlast}
+In $\mcal{V}_{M}$, $S(A) = I(A) = J(A)$. Consequently, in $\mcal{V}_{M}$, $|2^{A}|<|I(A)|=|J(A)|<|\seq^{1-1}(A)|<|\seq(A)|$.
+\end{theorem}
+
+\begin{proof}
+The proof goes similarly as in Theorem \ref{VF0IJ}: Use the fact that $A$ is Dedekind-finite in $\mcal{V}_{M}$ and Lemma \ref{VMlemma}. Also, $|S(A)|>|2^{A}|$ in $\mcal{V}_{M}$ (see \cite[Theorems 2.4 and 2.14]{DH}) and $|S(A)|<|\seq^{1-1}(A)|$ in $\mcal{V}_{M}$ (see \cite[Theorem 3.2]{SonVej2019}). The fact that $|\seq^{1-1}(A)|<|\seq(A)|$ in $\mcal{V}_{M}$ is well-known (see \cite[Proposition 7.2.3]{HalSheRela}).
+\end{proof}
+
+
+
+
+
+\section{A modification of the ordered Mostowski model}
+
+Let $A=\{a_{(i,q)}:(i,q)\in \omega\times\mathbb{Q}\}$ be the set of atoms equipped with a partial ordering $<^{M_{\omega}}$ defined by $a_{(i,q)}<^{M_{\omega}}a_{(j,p)}$ if and only if $i=j$ and $q<p$, and let $L_{i}=\{a_{(i,q)}:q\in\mathbb{Q}\}$ for all $i\in\omega$. Let $\mcal{G}$ be the group of order-preserving permutations $\pi$ on $(A,<^{M_{\omega}})$ such that $\pi[L_{i}]=L_{i}$ for all $i\in\omega$. Let $\mcal{V}_{M_\omega}$ be the permutation model induced by the normal ideal $\fin(A)$. This is the model $\mcal{N}29$ in \cite{HowardRubin}. Similar to the previous model, $A$ is Dedekind-finite in $\mcal{V}_{M_{\omega}}$.
+
+\begin{theorem}\label{VinfM} 
+In $\mcal{V}_{M_{\omega}}$, $S(A)=I(A)=J(A)$ and $|I(A)|=|J(A)|<|2^{A}|$.  
+\end{theorem}
+
+\begin{proof}
+By Theorem \ref{IS}, since $A$ is Dedekind-finite in $\mcal{V}_{M_{\omega}}$, we have that $I(A)=S(A)$ in $\mcal{V}_{M_{\omega}}$. To see that $J(A)=S(A)$ in $\mcal{V}_{M_{\omega}}$, consider a function $p:A\to A$ with a finite support $E$. Suppose there is some $a\in \m(p)$ such that $p(a)\notin E$. Since $a\neq p(a)$, there exist $b,b'\in A$ such that $b<^{M_{\omega}}p(a)<^{M_{\omega}}b'$ and $\{x\in A: b\leq^{M_{\omega}} x\leq^{M_{\omega}} b'\}\cap (E\cup\{a\})=\emptyset$. Then we can pick $\pi\in \fix(E)$ such that $\pi(a)=a$ but $\pi(p(a))\neq p(a)$, which is a contradiction. Hence, $p[\m(p)]\subseteq E$. Thus, if $p$ is surjective, then any $a\in A\setminus E$ is a fixed point of $p$. Also, a surjection with finitely many non-fixed points must be a bijection. Hence, $J(A)=S(A)$ in $\mcal{V}_{M_{\omega}}$. The rest follows from the fact that $|S(A)|<|2^{A}|$ in $\mcal{V}_{M_{\omega}}$ (see \cite[Theorem 2.25]{DH}).
+\end{proof}
+
+
+
+
+
+\section{A new permutation model}
+
+We construct a new permutation model as follows: Let $A=\{a_{s}:s\in \seq(3)\}$ be the set of atoms, where $\seq(3)$ means $\seq(\{0,1,2\})$ not its cardinality. For simplicity, we denote each $a_{s}$ by $[s]$. For each $s=\langle x_{0},\dotsc, x_{n-1}\rangle\in \seq(3)$ and $f\in S(3)$, define a permutation $\pi(s,f)$ on $A$ as follows: For each $a\in A$, if $a=[t]$ where $t=\langle x_{0},\dotsc, x_{n-1},y_{n},\dotsc,y_{n+k-1}\rangle$ and $k>0$, define $\pi(s,f)(a)=[\langle x_{0},\dotsc, x_{n-1},f(y_{n}),y_{n+1},\dotsc,y_{n+k-1}\rangle]$; otherwise, define $\pi(s,f)(a)=a$. Let $\mcal{G}$ be the group generated by the set of permutations $H=\{\pi(s,f):s\in \seq(3)\text{ and }f\in S(3)\}$. Let $\mcal{V}_{T3}$ be the permutation model induced by the normal ideal $\fin(A)$. Note that there exists a tree ordering on $A$ defined by $[s] \sqsubset [t]$ if and only if $s\subsetneq t$. So, each $\pi(s,f)$ is an automorphism on the tree $(A,\sqsubset)$. This may help to visualize the set $A$ and the group $\mcal{G}$.
+
+For convenience, let us write $\seq^{\geq k}(A)$ for $\{ s\in\seq(A) : \dom(s) \geq k \}$ and $\seq^{<k}(A)$ for $\{ s\in\seq(A) : \dom(s) < k \}$ for any $k\in\omega$.
+
+\begin{lemma}\label{VT3lemma}
+In $\mcal{V}_{T3}$, any bijection $p:A\to A$ has finitely many non-fixed points.
+\end{lemma}
+
+\begin{proof}
+Let $p:A\to A$ be a bijection with a finite support $E$. Since $E$ is finite, there exists $d\in\omega$ such that $E\cap\{[s]:s\in \seq^{\geq d}(3)\}=\emptyset$.
+Let $B=\{[s]:s\in \seq^{< d}(3)\}$. Since $B$ is finite and $p$ is bijective, $p^{-1}[B]$ is finite. Thus, lengths of all sequences in $p^{-1}[B]$ are bounded above by some $r>d$. That is $p[\{[s]:s\in \seq^{\geq r}(3)\}]\subseteq \{[s]:s\in \seq^{\geq d}(3)\}$. We are to show that $\m(p)\subseteq\{[s]:s\in \seq^{<r}(3)\}$, which implies the desired result that $\m(p)$ is a finite set.
+
+Consider any $s=\langle x_{0},\dotsc, x_{n-1}\rangle$ and $t=\langle y_{0},\dotsc, y_{m-1}\rangle$ such that $n\geq r$ and $p([s])=[t]$. By the above property of $r$, we have that $m\geq d$. First, suppose $m>n$. We can pick a permutation $f \in S(3)$ which moves $y_{m-1}$ and let $\sigma=\pi(\langle y_{0},\dotsc, y_{m-2}\rangle,f)$. Since $m-1\geq n\geq r>d$, $\sigma\in \fix(E)$ and $\sigma([s])=[s]$ but $\sigma([t])=[\langle y_{0},\dotsc,y_{m-2}, f(y_{m-1})\rangle]\neq [t]$. Then $p([s])=(\sigma p)(\sigma[s])=\sigma (p([s]))=\sigma([t])\neq [t]$, but $p([s])=[t]$, a contradiction. For the case that $n>m$, we similarly get a contradiction by picking a permutation $f \in S(3)$ which moves $x_{n-1}$ and considering $\pi(\langle x_{0},\dotsc,x_{n-2}\rangle,f)$. So $m=n$. Next, suppose that there is some $l<n$ such that $x_{l}\neq y_{l}$. Assume without loss of generality that $l$ is the smallest one. Let $k = \max\{l+1,d\}$. 
+We can pick $\sigma=\pi(\langle y_0,...,y_{k-2} \rangle, (y_{k-1};z))$ such that $z\in 3\setminus\{x_{k-1},y_{k-1}\}$. Then we have that $\sigma\in\fix(E)$ and $\sigma([s])=[s]$ but $\sigma([t])=[\langle y_{0},\dotsc,y_{k-2},z,y_{k},\dotsc, y_{m-1}\rangle]\neq [t]$, which is a contradiction. Hence, $s=t$.
+So $\m(p)\subseteq\{[s]:s\in \seq^{< r}(3)\}$ which is a finite set.
+\end{proof}
+
+\begin{lemma}\label{VT3lemma2}
+In $\mcal{V}_{T3}$, $S(A)$ is Dedekind-finite. Consequently, in $\mcal{V}_{T3}$, $A$ is Dedekind-finite.
+\end{lemma}
+
+\begin{proof}
+Assume that there is an injection $F:\omega\to S(A)$ with a finite support $E$. Since $E$ is finite, there exists $d\in\omega$ such that $E\cap\{[s]:s\in \seq^{\geq d}(3)\}=\emptyset$. 
+Suppose there exists $k\in\omega$ such that $F(k)$ has a non-fixed point $[s]$ with $s\in \seq^{\geq d}(3)$. Then, as in the previous proof, we can pick $\pi\in \fix(E)$ such that $\pi(F(k))\neq F(k)$. Thus $F(\pi(k))=(\pi F)(\pi(k))=\pi(F(k))\neq F(k)=F(\pi(k))$, which is impossible. Hence $\ran(F)\subseteq \{p\in S(A): \m(p)\subseteq\{[s]:s\in\seq^{<d}(3)\} \}$, which is a finite set, contradicting the injectivity of $F$.
+\end{proof}
+
+\begin{theorem}\label{VT3result}
+In $\mcal{V}_{T3}$, $|S(A)|=|I(A)|<|J(A)|$.
+\end{theorem}
+
+\begin{proof}
+By Lemma \ref{VT3lemma2}, $A$ is Dedekind-finite in $\mcal{V}_{T3}$, and hence $S(A)=I(A)$ by Theorem \ref{IS}. Our main goal is to construct a non-injective surjection on $A$ in $\mcal{V}_{T3}$. After this is done, we have in $\mcal{V}_{T3}$ that $S(A) \neq J(A)$, and this implies that $J(A)$ is Dedekind-infinite by Theorem \ref{JSomega}. Then, as $S(A)$ is Dedekind-finite (by Lemma \ref{VT3lemma2} again), we have $|J(A)| \neq |S(A)|$ in $\mcal{V}_{T3}$ which finishes the proof.
+
+Define a function $d:A\to A$ by $d([\langle x_{0},\dotsc,x_{n-1}, x_{n}\rangle])= [\langle x_{0},\dotsc, x_{n-1}\rangle]$ and $d([\emptyset])=[\emptyset]$. Obviously, $d$ is surjective and non-injective. We will show that this is a function with empty support. Observe that $\pi(s,f)^{-1}=\pi(s,f^{-1})$ for any $s\in\seq(3)$ and $f\in S(3)$. Hence, each $\pi\in \fix(\emptyset)=\mcal{G}$ can be written in the form $\pi(s_{1},f_{1})\circ\dotsc\circ\pi(s_{n},f_{n})$. So, it suffices to check that for each $\pi(s,f)\in H$, $\pi(s,f)(d)=d$.
+
+Let $\pi(s,f)\in H$. Consider each $[\langle x_{0},\dotsc,x_{n-1}, x_{n}\rangle]\in A$. If $s\not\subseteq \langle x_{0},\dotsc,x_{n-1}, x_{n}\rangle$ or $s=\langle x_{0},\dotsc,x_{n-1}, x_{n}\rangle$ then 
+\begin{align*}
+\pi(s,f)(d([\langle x_{0},\dotsc,x_{n-1}, x_{n}\rangle])) 
+&=\pi(s,f)([\langle x_{0},\dotsc,x_{n-1}\rangle]) \\
+&= [\langle x_{0},\dotsc,x_{n-1}\rangle] \\
+&= d([\langle x_{0},\dotsc,x_{n-1},x_{n}\rangle]) \\
+&= d(\pi(s,f)([\langle x_{0},\dotsc,x_{n-1}, x_{n}\rangle])).
+\end{align*}
+If $s=\langle x_{0},\dotsc,x_{n-1}\rangle$ then 
+\begin{align*}
+\pi(s,f)(d([\langle x_{0},\dotsc,x_{n-1}, x_{n}\rangle])) 
+&= \pi(s,f)([\langle x_{0},\dotsc,x_{n-1}\rangle])\\ 
+&= [\langle x_{0},\dotsc,x_{n-1}\rangle] \\
+&= d([\langle x_{0},\dotsc,x_{n-1},f(x_{n})\rangle]) \\
+&= d(\pi(s,f)([\langle x_{0},\dotsc,x_{n-1}, x_{n}\rangle])).
+\end{align*}
+If $s=\langle x_{0},\dotsc, x_{l-1}\rangle$ for some $l<n$ then 
+\begin{align*}
+\pi(s,f)(d([\langle x_{0},\dotsc,x_{n-1}, x_{n}\rangle])) 
+&= \pi(s,f)([\langle x_{0},\dotsc,x_{n-1}\rangle]) \\
+&= [ \langle x_{0},\dotsc,x_{l-1},f(x_{l}),x_{l+1},\dotsc,x_{n-1}\rangle] \\
+&= d([\langle x_{0},\dotsc,x_{l-1},f(x_{l}),x_{l+1},\dotsc,x_{n-1},x_{n}\rangle]) \\
+&= d(\pi(s,f)([\langle x_{0},\dotsc,x_{n-1}, x_{n}\rangle])).
+\end{align*}
+Hence, $\pi(s,f)(d)=d$ for any $\pi(s,f)\in H$.
+\end{proof}
+
+
+\noindent\textbf{Remark.} There is another way to show that $S(A)\neq J(A)$ in this model. By Theorem \ref{JS}, it suffices to show that $A$ is not $\Delta_{5}$-finite. There is a fact that a set $X$ is $\Delta_5$-finite if and only if there is no subset of $X$ which carries a well-founded tree structure of height $\omega$ and no leaves (see \cite{PanaTruss} for the definitions and the proof). Recall that the set of atoms $A$ of this model has a tree ordering $\sqsubset$. We can see that the tree $(A,\sqsubset)$ is of height $\omega$ and has no leaves. So, we are left to show that this ordering $\sqsubset$ is in the model, and this is done by observing that any permutation in $\mathcal{G}$ preserves the ordering $\sqsubset$.
+ 

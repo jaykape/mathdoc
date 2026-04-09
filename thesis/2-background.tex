@@ -1,0 +1,165 @@
+\chapter{Preliminaries}
+
+
+In this chapter, we provide some basic knowledge for our works. Most theorems and facts in this chapter are stated without proofs. The readers can find more details in \cite{Hal} or \cite{Jech}.
+
+\section{Cardinals and ordinals}
+
+ For any set $A$, the \emph{cardinality} of $A$ or the size of $A$ is the number of all elements of $A$, and is denoted by $|A|$. For any sets $A$ and $B$, we say that 
+   \begin{itemize}\itemsep0em
+       \item $|A|=|B|$ if there is a bijection between $A$ and $B$ (denoted by $A\approx B$),
+       \item $|A|\leq|B|$ if there is an injection from $A$ to $B$ (denoted by $A\preceq B$),
+       \item $|A|<|B|$ if $|A|\leq|B|$ and $|A|\neq|B|$,
+       \item $|A|\leq^{*}|B|$ if $A=\emptyset$ or there is a surjection from $B$ to $A$ (denoted by $A\preceq^{*}B$).
+   \end{itemize}
+
+
+\begin{theorem}[Cantor-Bernstein] For any sets $A$ and $B$, if $|A|\leq|B|$ and $|B|\leq|A|$ then $|A|=|B|$.
+\end{theorem}
+\noindent Note that the relation $\leq$ partially orders the cardinals.
+
+\begin{definition}\textup{
+    For any sets $A$ and $B$, we define 
+    \begin{itemize}\itemsep0em
+        \item $|A|+|B|=|A\cup B|$ if $A\cap B=\emptyset$,
+        \item $|A|\cdot|B|=|A\times B|$,
+        \item $|A|^{|B|}=|A^{B}|$,
+    \end{itemize}
+    where $A\times B$ is the Cartesian product of $A$ and $B$, and $A^{B}$ is the set of functions from $B$ to $A$. }
+\end{definition}
+   
+
+\begin{remark}\textup{For any set $A$,
+    $|\mathcal{P}(A)|=|2^{A}|$ where $\mathcal{P}(A)$ is the power set of $A$.}
+\end{remark} 
+
+
+\noindent The following theorem is well-known.
+
+\begin{theorem}[Cantor] $\frak{m}<2^{\frak{m}}$ for any cardinal $\frak{m}$.
+\end{theorem}
+
+   
+A totally ordered structure $(A,\leq)$ is called a \emph{well-ordered structure} if any non-empty subset of $A$ has a $\leq$-least element. An \emph{ordinal} is a set $\alpha$ which is transitive (that is, if $X\in\alpha$ then $X\subseteq\alpha$) and $(\alpha,\in)$ is a well-ordered structure. Some primary examples of ordinals are natural numbers $$0=\emptyset, 1=\{0\}, 2=\{0,1\}, 3=\{0,1,2\}, ... \ .$$ The set of natural numbers $\omega=\{0,1,2,...\}$ is also an ordinal. Note that $|n|=n$ for each natural number $n$. We write $\aleph_{0}$ for $|\omega|$. 
+
+\begin{theorem}
+    Any well-ordered set is isomorphic to a unique ordinal.
+\end{theorem}
+
+\begin{definition}\textup{
+A set $A$ is \emph{Dedekind-infinite} if there is an injection from $\omega$ to $A$ (i.e. $\omega \preceq A$); otherwise, $A$ is \emph{Dedekind-finite}.
+}
+  \end{definition}
+
+\begin{definition}
+    \textup{A set $A$ is \emph{weakly Dedekind-infinite} if there is a surjection from $A$ onto $\omega$ (i.e. $\omega \preceq^{*} A$); otherwise, $A$ is \emph{weakly Dedekind-finite}.}
+\end{definition}
+
+We say that a cardinal $\frak{m}$ is Dedekind-infinite if $\frak{m}=|A|$ for some Dedekind-infinite set $A$, i.e. $\aleph_{0}\leq\frak{m}$. Similarly for the other terms mentioned above.
+
+
+\section{The Axiom of Choice}
+
+As we have said in the introduction, one of the accepted systems used as a foundation for mathematics is the Zermelo-Fraenkel set theory (ZF) with the Axiom of Choice (AC). \textbf{The Axiom of Choice} states that for any set $X$ of non-empty sets, there exists a choice function $f$ on $X$, i.e. a function $f:X\to\bigcup X$ such that $f(A)\in A$ for any $A\in X$. Here are some equivalent forms of AC. 
+    \begin{itemize}\itemsep0em
+        \item[1.] Every two cardinals are comparable.
+        \item[2.] Well-ordering theorem: Every set can be well-ordered.
+        \item[3.] Zorn's lemma: Every non-empty partially ordered set in which every chain (i.e., totally ordered subset) has an upper bound contains a maximal element.
+        \item[4.] Every vector space has a basis.
+        \end{itemize}
+
+Especially with the Well-ordering theorem, any set has the same cardinality as that of some ordinal. Most cardinal arithmetics of well-ordered sets are much simpler than those of arbitrary sets. 
+
+\begin{theorem}
+    For any non-empty well-ordered sets $A$ and $B$ such that $A$ or $B$ is infinite,$$|A|+|B|=|A|\cdot|B|=\max\{|A|,|B|\}.$$ In particular, if AC is assumed, then the assumption ``well-ordered" can be dropped.
+\end{theorem}
+
+
+
+
+\section{Some facts in logic}
+
+In this section, we discuss some notations and facts in the first-order logic. Let us fix a language $\mathcal{L}$. The notation $\Gamma\vdash \varphi$ means that the formula $\varphi$ can be proved from a set of formulas $\Gamma$. 
+
+\begin{definition}\textup{
+A set of formulas $\Gamma$ is \emph{consistent} if there is no formula $\varphi$ such that $\Gamma\vdash\varphi\land\lnot\varphi$. We write \textup{Con($\Gamma$)}} for the statement ``$\Gamma$ is consistent".
+\end{definition}
+
+\begin{theorem}
+    A set of formulas $\Gamma$ is consistent if and only if there exists a model of $\Gamma$.
+\end{theorem}
+
+In the language of set theory, where $\mathcal{L}=\{\in\}$, we say that a statement $\varphi$ is relatively consistent with ZF if we can prove that Con(ZF) $\to$ Con(ZF$\cup\{\varphi\}$). The actual details and techniques to show a relative consistency are very complicated. In the next section we will give briefly the tools which are used in this thesis.
+
+\section{Permutation models}
+
+The theory ZFA is a modification of the usual ZF which admits elements other than sets, called \emph{atoms} or \emph{urelements}. In this section we provide a construction of permutation models. For more details, see \cite[Chapter 4]{Jech} or \cite[Chapter 8]{Hal}.
+
+The axioms of ZFA are written in the language of set theory with atoms $\mathcal{L}=\{\in,\text{A}\}$. It includes most of the axioms of Zermelo–Fraenkel set theory, with some of them modified to incorporate atoms. The following is the list of such modified axioms:
+
+\begin{itemize}
+
+     \item \textbf{Axiom of Empty Set:} 
+    \[
+    \exists\hspace{0.05cm} x \hspace{0.1cm}\big(x\not\in\text{A}\land\forall y (y \notin x)\big).
+    \]
+
+    \item \textbf{Axiom of Atoms:} 
+    \[
+    \forall\hspace{0.02cm} x \hspace{0.05cm}\hspace{0.05cm}\big(x\in\text{A}\leftrightarrow (x\neq \emptyset\land\forall y (y \not\in x)\big).
+    \]
+    
+    \item \textbf{Axiom of Extensionality:} 
+    \[
+    \forall\hspace{0.02cm} x \hspace{0.05cm}\hspace{0.05cm}\forall \hspace{0.02cm}y\hspace{0.05cm}\hspace{0.05cm} \big((x\not\in\text{A}\land y\not\in\text{A})\to(\forall z (z \in x \leftrightarrow z \in y) \rightarrow x = y)\big).
+    \]
+
+    \item \textbf{Axiom of Regularity:}
+    \[
+    \forall\hspace{0.02cm} S \hspace{0.05cm}\hspace{0.05cm}\big(\exists\hspace{0.02cm} x\hspace{0.05cm}(x\in S)\rightarrow\exists \hspace{0.02cm}x\in S\hspace{0.05cm}(x\cap S=\emptyset)\big).
+    \]
+\end{itemize}
+
+Let $A$ be an infinite set of atoms, and $\mcal{G}$ be a group of permutations on $A$. Define $V_0 = A$, $V_{\alpha+1} = V_\alpha \cup \mcal{P}(V_\alpha)$, and $V_\beta = \bigcup_{\alpha<\beta} V_\alpha$ when $\beta$ is a limit ordinal, and $V = \bigcup_{\alpha\in \textbf{ON}} V_\alpha$. Note that any permutation $\pi$ on $A$ can be extended uniquely to a permutation on $V$ by letting $\pi x = \{\pi y : y\in x\}$, and it becomes an $\in$-automorphism on $V$. 
+
+\begin{theorem}
+Let $x$ and $y$ be any sets, and $\pi$ and $\rho$ be any $\in$-automorphisms on $A$.
+    \begin{itemize}
+        \item[1)] $x\in y$ $\leftrightarrow$ $\pi x\in\pi y$,
+        \item[2)] $\pi \{x,y\}=\{\pi x,\pi y\}$,
+        \item[3)] $\pi (x,y)=(\pi x,\pi y)$,
+        \item[4)] if $R$ is a relation, then $\pi R$ is a relation and $(x,y)\in R$ $\leftrightarrow$ $(\pi x,\pi y)\in \pi R$,
+        \item[5)] if $f$ is a function, then $\pi f$ is a function and $(\pi f)(\pi x)=\pi(f(x))$,
+        \item[6)] $(\pi\circ\rho)x=\pi(\rho(x))$.
+    \end{itemize}    
+\end{theorem}
+
+
+\begin{definition}
+    A family $I$ of subsets of $A$ is said to be an \emph{ideal} if for all subsets $E$ and $F$ of $A$ we have the following:\\
+    1) $\emptyset\in I$.\\
+    2) If $E\in I$ and $F\subseteq E$ then $F\in I$.\\ 
+3) If $E,F\in I$ then $E\cup F\in I$.
+\end{definition} 
+
+\begin{definition}\textup{
+    An ideal $I$ on $A$ is \emph{normal} if $\{a\}\in I$ for all $a\in A$, and $\pi E \in I$ whenever $E\in I$ and $\pi\in\mcal{G}$.}
+\end{definition} 
+
+\begin{definition}\textup{
+For any $x\in V$ and $E\in I$, we say that $E$ is a \emph{support} of $x$ if $\fix(E) \subseteq \sym(x)$, where $\fix(E) = \{\pi\in\mcal{G} : \pi y = y \text{\ for all\ } y\in E\}$ and $\sym(x) = \{\pi\in\mcal{G} : \pi x = x\}$.}   
+\end{definition}
+
+\begin{definition}\textup{
+ A permutation model $\mcal{V}$ which is determined by a set of atoms $A$, a group of permutations $\mcal{G}$ and a normal ideal $I$, is defined hereditarily by $$\mcal{V} = \{ x\in V : x \text{\ has a support and\ } x\subseteq\mcal{V} \}.$$ }  
+\end{definition}
+
+All permutation models used in this thesis are obtained from the normal ideal $\fin(A)$, the set of finite subsets of $A$.
+
+\begin{theorem}
+    Any permutation model is a model of ZFA.
+\end{theorem}
+
+
+Although we work in ZFA, all consistency results in this thesis can be transferred to ZF via the Jech-Sochor Embedding Theorem (see \cite[Chapter 6]{Jech}). So, in order to show that ``$\varphi$ is relatively consistent with ZF" for a suitable statement $\varphi$, it suffices to construct a permutation model in which $\varphi$ holds.
+

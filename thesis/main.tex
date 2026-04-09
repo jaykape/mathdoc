@@ -1,0 +1,246 @@
+% Default language option is [thaithesis]. The other possible option is [engthesis].
+% Default format option is [ugrad]. Other possible options are [master,doctor].
+%\documentclass[a4paper]{chula-memoir}
+%\documentclass[a4paper,thaithesis,master]{chula-memoir}
+\documentclass[a4paper,engthesis,master]{chula-memoir}
+
+
+\usepackage{ulem}
+% List all required packages here
+\usepackage{float}              % for floating figures
+\usepackage{amsmath}            % for math related environment
+\usepackage{amsfonts}           % fonts for math
+\usepackage{listings}           % for pseudo-code, lines of codes
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{(\alph{subfigure})}    % for (a) in subcaption
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{wrapfig}            % for figures wrap inside text paragraph
+\usepackage{pdfpages}           % for including pdf pages
+\usepackage{verbatim}           % for block comment
+\usepackage{multicol}
+
+\usepackage{standalone}         % for proposal text inclusion
+\usepackage{pgfgantt}           % for gantt chart
+\usepackage{longtable}          % for multi-page table
+
+
+
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{amssymb}
+
+\usepackage{tikz}
+
+
+
+
+
+
+
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Collorary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{note}[theorem]{Note}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\usepackage{hyperref}
+
+
+\renewcommand{\restriction}{\mathord{\upharpoonright}}
+\newcommand{\mdot}{\cdot\cdot\cdot}
+\newcommand{\seq}{\textup{seq}}
+\newcommand{\fin}{\textup{fin}}
+\newcommand{\fix}{\textup{fix}}
+\newcommand{\m}{\textup{m}}
+\newcommand{\ran}{\textup{ran}}
+\newcommand{\dom}{\textup{dom}}
+\renewcommand{\max}{\textup{max}}
+
+\newcommand{\quotate}[1]{\lq\lq{#1}\rq\rq} %``
+\renewcommand{\frak}{\mathfrak}
+\newcommand{\mcal}{\mathcal}
+\newcommand{\sym}{\textup{sym}}
+
+
+
+
+
+
+% listings format
+\lstset{
+basicstyle=\ttfamily,
+numbers=left,
+numberstyle=\small,
+xleftmargin=.1\linewidth,
+frame=single,
+captionpos=b,
+columns=fullflexible,
+breaklines=true,
+keepspaces=true,
+showstringspaces=false,
+}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning,arrows,backgrounds,fit,decorations.pathreplacing}
+\usepackage{adjustbox}
+\usepackage[ruled,vlined]{algorithm2e}
+
+
+% \setlength{\arrayrulewidth}{1mm}
+\setlength{\tabcolsep}{10pt}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%% helper commands
+\newcommand\Tstrut{\rule{0pt}{2.6ex}}         % = `top' strut
+\newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
+
+\newbox\mybox
+\def\centerfigureone#1{%
+    \setbox\mybox\hbox{#1}%
+    \raisebox{-0.3\dimexpr\ht\mybox+\dp\mybox}{\copy\mybox}%
+}
+
+\newbox\mybox
+\def\centerfiguretwo#1{%
+    \setbox\mybox\hbox{#1}%
+    \raisebox{-0.4\dimexpr\ht\mybox+\dp\mybox}{\copy\mybox}%
+}
+
+\newbox\mybox
+\def\centerfigurethree#1{%
+    \setbox\mybox\hbox{#1}%
+    \raisebox{-0.4\dimexpr\ht\mybox+\dp\mybox}{\copy\mybox}%
+}
+
+%% Quantum related commands
+\input{quantum-circuit-drawing-command}
+
+
+
+%%------------------------------------------------------------
+%%-               SETTING THESIS PARAMETERS                  -
+%%------------------------------------------------------------
+
+\input{thesisParam}
+\setcitestyle{square}
+%%-------------------------------------------------------------------------------
+%%-                               DOCUMENT                  -
+%%-------------------------------------------------------------------------------
+\begin{document}
+\frontmatter
+% Thesis starts with Thai Cover
+\makethaicover
+\clearpage
+
+
+
+% Followed by English Cover
+\makeenglishcover
+\clearpage
+
+% Generate committee page
+\makecommittee
+\clearpage
+% Thai Abstract Section
+\include{abstractthai}
+\clearpage
+
+% English Abstract Section
+\include{abstractenglish}
+\newpage
+
+% Acknowledgement Section
+\include{acknowledgement}
+\clearpage
+
+% Table of Content
+\tableofcontents        % generate table of content
+\clearpage
+
+
+% Main Content
+\mainmatter
+%\doublespacing
+
+\include{1-introduction} 
+\include{2-background}
+\include{3-review-of-literature}
+\include{4-proposed-circuit}
+\include{5-results}
+
+
+
+%% References Section (must be placed before appendices)
+
+
+\begin{thebibliography}{20}
+
+\normalem
+
+\bibitem{DH}
+J. W. Dawson and P. E. Howard, Factorials of infinite cardinals, \emph{Fund. Math.} \textbf{93} (1976), 185--195.
+
+\bibitem{Ellen}
+E. Ellentuck, Generalized idempotence in cardinal arithmetic, \emph{Fund. Math.} \textbf{58} (1966), 241--258.
+
+\bibitem{HowardRubin}
+P. Howard and J. E. Rubin, \emph{Consequences of the Axiom of Choice}, Mathematical Surveys and Monographs Vol. 59 (American Mathematical Society, 1998).
+
+\bibitem{HalSheCon}
+L. Halbeisen and S. Shelah, Consequences of arithmetic for set theory, \emph{J. Symb. Log.} \textbf{99} (1994), 30--40.
+
+\bibitem{HalSheRela}
+L. Halbeisen and S. Shelah, Relations between some cardinals in the absence of the Axiom of Choice, \emph{Bull. Symb. Log.} \textbf{7} (2001), 237--261.
+
+\bibitem{Hal}
+L. Halbeisen, \emph{Combinatorial Set Theory With a Gentle Introduction to Forcing}, Springer International Publishing AG (2017).
+
+\bibitem{Jech}
+T. J. Jech, \emph{The Axiom of Choice}, Studies in Logic and the Foundation of Mathematics Vol. 75 (North-Holland, 1973).
+
+\bibitem{PanaTruss}
+S. Panasawatwong and J. K. Truss, Dedekind-finite cardinals having countable partition, \emph{J. Symb. Log.} (2023), 1--16. (online)
+
+\bibitem{ShenYuan}
+G. Shen and J. Yuan, Factorials of infinite cardinals in ZF part I: ZF results, \emph{J. Symb. Log.} \textbf{85} (2020), 224--243.
+
+\bibitem{Shen}
+G. Shen, Generalizations of Cantor's theorem in ZF, \emph{Math. Log. Q.} \textbf{63} (2017), 428--436.
+
+\bibitem{Sierpin}
+W. Sierpinski, \emph{Cardinal and ordinal numbers}, Panstwowe Wydawnictwo Naukowe, Warszawa (1958).
+
+\bibitem{SonVej18}
+N. Sonpanow and P. Vejjajiva, Some properties of infinite factorials, \emph{Math. Log. Q.} \textbf{64} (2018), 201--206.
+
+\bibitem{SonVej2019}
+N. Sonpanow and P. Vejjajiva, Factorials and the finite sequences of sets, \emph{Math. Log. Q.} \textbf{65} (2019), 116--120.
+
+\bibitem{Specker54}
+E. Specker, Verallgemeinerte Kontinuumshypothese und Auswahlaxiom, \emph{Arch. Math.} \textbf{5} (1954), 332–-337.
+
+\bibitem{Tarski}
+A. Tarski, Sur les ensembles finis, \emph{Fund. Math.} \textbf{6} (1924), 45--95.
+
+\bibitem{Truss}
+J. Truss, Classes of Dedekind finite cardinals, \emph{Fund. Math.} \textbf{84} (1974), 187--208.
+
+\end{thebibliography}
+% Appendix Section
+% first appendix MUST be specified like below.
+% chapter declaration must be in this file and use \input for contents
+
+
+
+%% Biography Section
+% specify your biography file here (this example is biography.tex)
+
+\end{document}

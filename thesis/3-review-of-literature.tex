@@ -1,0 +1,359 @@
+\chapter{Results in ZF}
+
+In this chapter, we explore the cardinalities of the set of injections and the set of surjections on a set $A$.
+
+\noindent\textbf{Definition.} Let $A$ be a set which is of cardinality $\frak{m}$.
+    \begin{itemize}\itemsep0em
+     \item $S(A) = \{f\in A^{A}:f\text{ is bijective}\}.$
+        \item $I(A)=\{f\in A^{A}:f\text{ is injective}\}.$
+        \item $J(A)=\{f\in A^{A}:f\text{ is surjective}\}.$
+        \item $S(\frak{m})=|S(A)|$, $I(\frak{m})=|I(A)|$ and $J(\frak{m})=|J(A)|$.  
+    \end{itemize}
+ \noindent Note that in \cite{DH} and many others (e.g. \cite{ShenYuan}, \cite{SonVej18} and \cite{SonVej2019}), the notation $\frak{m}!$ is used for $S(\frak{m})$.   
+ 
+
+
+
+\section{Relations among $I(A)$, $J(A)$ and $S(A)$}
+
+First, observe that $S(A) \subseteq I(A) \subseteq A^A$ and $S(A) \subseteq J(A) \subseteq A^A$ for any set $A$. 
+
+\begin{theorem}\label{ps}
+    For any infinite well-ordered set $A$, $2^{A}\approx S(A)$.
+\end{theorem}
+
+\begin{proof}
+See \cite[Theorem 1.2]{DH}.    
+\end{proof}
+
+\begin{theorem}
+   For any infinite well-ordered set $A$, $S(A) \approx I(A) \approx J(A) \approx A^A$.
+\end{theorem}
+
+\begin{proof}
+    Let $A$ be an infinite well-ordered set. Since $S(A)\subseteq A^{A}\subseteq\mathcal{P}(A\times A)\approx 2^{A\times A}\approx 2^{A}\approx S(A)$ (by Theorem \ref{ps}), we are done.
+\end{proof}
+
+In general, $I(A)$ and $J(A)$ are incomparable under the inclusion for infinite sets $A$. Indeed, if $A$ is an infinite well-ordered set, there exist non-surjective injections and non-injective surjections on $A$. However, the following theorem shows that their sizes are always comparable.
+
+\begin{theorem}\label{IJ}
+For any cardinal $\mathfrak{m}$,   $I(\mathfrak{m}) \leq J(\mathfrak{m})$.
+\end{theorem}
+
+\begin{proof}
+Clearly $|I(\emptyset)| = 1 = |J(\emptyset)|$. From now on, let $A$ be a non-empty set. Let $F : I(A) \to J(A)$ be a function defined as follows: For each $p\in I(A)$, define
+\[
+F(p)(a)=
+\begin{cases}
+p^{-1}(a) &\text{if } a \in \ran(p),\\
+a &\text{otherwise}.
+\end{cases}
+\]
+Consider each $p \in I(A)$. Since $p$ is injective, $p^{-1}$ is an injection on $\ran(p)$. For each $a \in A$, we have  $a = p^{-1}(p(a)) = F(p)(p(a))$, so $a \in \ran(F(p))$. Hence, $F(p) \in J(A)$, and thus $F$ is well-defined. To see that $F$ is injective, let $p_{1},p_{2} \in I(A)$ be such that $p_{1} \neq p_{2}$, i.e. there is an $a \in A$ such that $p_{1}(a) \neq p_{2}(a)$. We assume, without loss of generality, that $p_{1}(a) \neq a$. Let us show that $F(p_{2})(p_{1}(a)) \neq a$. If $p_{1}(a) \in \ran(p_{2})$, then $F(p_{2})(p_{1}(a)) = (p_{2})^{-1}(p_{1}(a)) \neq (p_{2})^{-1}(p_{2}(a)) = a$ since $(p_{2})^{-1}$ is injective and $p_{1}(a) \neq p_{2}(a)$. If $p_{1}(a) \notin \ran(p_{2})$, then $F(p_{2})(p_{1}(a)) = p_{1}(a) \neq a$ by the assumption. From these two cases, we have $F(p_{2})(p_{1}(a)) \neq a$. However, $F(p_{1})(p_{1}(a)) = p_{1}^{-1}(p_{1}(a)) = a$ by the definition of $F$. So $F(p_{1}) \neq F(p_{2})$. 
+\end{proof}
+
+Recall that $S(A) \subseteq I(A)$ and $S(A) \subseteq J(A)$ for any set $A$. It turns out that the condition whether each pair of these sets are equal is strongly related to the condition whether $A$ is Dedekind-finite (or weakly Dedekind-finite). In what follows, we write $id_A$ for the identity function on $A$, and for any function $p$ on $A$, $p^0 = id_A$ and $p^{n+1} = p \circ p^n$ for $n\in\omega$.
+
+\begin{theorem}\label{IS}
+For any set $A$, $I(A)=S(A)$ if and only if $A$ is Dedekind-finite.
+\end{theorem}
+
+\begin{proof}
+Assume that $A$ is Dedekind-infinite, i.e. there is a countably infinite subset $\{ a_{0}, a_{1}, a_{2}, \dotsc \}$ of $A$ where $a_{i}\neq a_{j}$ whenever $i\neq j$.   Define a function $p : A \to A$ by  $p(a_{i}) = a_{i+1}$ for each $i \in \omega$ and $p(x) = x$ otherwise. Then obviously $p$ is injective but not surjective, and hence $I(A) \neq S(A)$.
+
+For the converse, assume that $I(A) \neq S(A)$, i.e. there is a non-surjective injection $p:A \to A$. Since $p$ is not surjective, there is an element $a \in A$ such that $a \notin \ran(p)$. We have that the set $\{ a, p(a), p^{2}(a), \dotsc \}$ is a countably infinite subset of $A$. Indeed, if we have $p^{m}(a) = p^{n}(a)$ for some $m>n$, then $a = p^{m-n}(a) = p( p^{m-n-1}(a) ) \in \ran(p)$, which is a contradiction.
+\end{proof}
+
+In \cite{Truss}, Truss introduced another notion of finiteness.
+
+\begin{definition}
+    A set $X$ is said to be $\Delta_5$-finite if $|X|+1 \nleq^* |X|$.
+\end{definition} 
+
+
+
+    
+\begin{theorem}
+For any set $A$,
+\begin{itemize}
+    \item[1)] if $A$ is weakly Dedekind-finite then $A$ is $\Delta_5$-finite,
+    \item[2)] if $A$ is $\Delta_5$-finite then $A$ is Dedekind-finite.
+\end{itemize}
+Moreover, the converse of each of these two statements is not provable in ZF, provided that ZF is consistent. 
+\end{theorem}
+
+\begin{proof}
+    See \cite[Lemma 3]{Truss}.
+\end{proof}
+
+\begin{theorem} \label{JS}
+For any set $A$, $J(A)=S(A)$ if and only if $A$ is $\Delta_5$-finite. As a result,
+\begin{itemize}
+    \item[1)] if $A$ is weakly Dedekind-finite then $J(A)=S(A)$,
+    \item[2)] if $J(A)=S(A)$ then $A$ is Dedekind-finite.
+\end{itemize}
+\end{theorem}
+
+
+\begin{proof}
+Suppose $A$ is $\Delta_5$-infinite. Then $A \neq \emptyset$ and there is a surjection $f:A \rightarrow A \cup\{c\}$ for some $c\notin A$. Pick some $a\in A$, and define $g:A \rightarrow A$ by $g(x)=f(x)$ if $f(x) \neq c$, and $g(x)=a$ if $f(x) = c$. It is easy to see that $g$ is a non-injective surjection on $A$, and hence $J(A) \neq S(A)$. Conversely, suppose that there is a non-injective surjection $g$ on $A$. There are distinct $a,b \in A$ such that $g(a) = g(b)$. Let $c$ be a set such that $c\notin A$. Define $f:A \rightarrow A\cup\{c\}$ by $f = \left(g\restriction(A \setminus\{a\})\right) \cup \{(a,c)\}$. Then $f$ is surjective, and hence $A$ is not $\Delta_5$.
+\end{proof}
+
+\begin{theorem}\label{JSomega}
+For any set $A$, if $J(A)\neq S(A)$ then $S(A)\times \omega \preceq J(A)$. As a result, if $J(A)\neq S(A)$ then $J(A)$ is Dedekind-infinite. 
+\end{theorem}
+
+\begin{proof}
+Let $A$ be a set such that $J(A)\neq S(A)$. Fix $p \in J(A) \setminus S(A)$. Define a function $f:S(A) \times \omega \rightarrow J(A)$ by $F(\theta,n) = \theta \circ p^n$. We will show that $F$ is injective. Suppose that $\eta,\theta \in S(A)$ and $m,n\in\omega$ are such that $F(\eta,m)=F(\theta,n)$; that is, $\eta \circ p^m = \theta \circ p^n$. Assume to the contrary that $m \neq n$. Assume without loss of generality that $m>n$. Then, by the fact that surjection is right cancellable (i.e. for any surjection $q$ and any functions $g$ and $h$, if $g\circ q=h\circ q$ then $g=h$), $\eta \circ p^{m-n} = \theta$. Since $p$ is not injective, it follows that $\theta = (\eta \circ p^{m-n-1}) \circ p$ is not injective, which is a contradiction. Hence, $m=n$. Again, since $\eta\circ p^{m}=\theta\circ p^{m}$ and the fact that surjection is right cancellable, $\eta = \theta$. Hence $F$ is injective.
+\end{proof}
+
+Theorem \ref{IS} gives an observation that $I(A) \approx S(A)$ if $A$ is Dedekind-finite. It turns out that a weaker condition for a set $A$ suffices to yield $I(A) \approx S(A)$.
+
+\begin{theorem}
+     For any set $A$, if $A=B\cup C$ where $B$ is Dedekind-finite and $C$ is a set such that $C\times\omega\approx C$, then $S(A)\approx I(A)$.
+\end{theorem}
+
+
+    \begin{proof}
+Let $A$ be a set which satisfies the above condition. Without loss of generality, let us assume that $C$ and $\{0,1\}\times\omega\times C$ are disjoint. As $B$ is Dedekind-finite, so is $B\setminus \bigl(C\cup (\{0,1\}\times\omega\times C)\bigr)$. So, without loss of generality, we assume that $B$ and $C\cup (\{0,1\}\times\omega\times C)$ are disjoint.
+
+For any injection $p:A\to A$ and any $b\in B\setminus \ran(p)$, $p(b),p^{2}(b),...$ are all distinct and it is impossible that all of them are in $B$ since $B$ is Dedekind-finite. For each $b\in B\setminus\ran(p)$, we denote the first appearance of an element of $C$ in the sequence by $b_{p}$. Note that for each distinct $b$ and $b'$ in $B\setminus \ran(p)$, $b_{p}\neq b'_{p}$ by the injectivity of $p$. 
+
+Define a function $F:I(A)\to S\bigl(A\cup (\{0,1\}\times\omega\times C)\bigr)$ by 
+\begin{align*}
+F(p) &= p\cup \{((0,n+1,b_{p}),(0,n,b_{p})):n\in\omega\text{ and }b\in B\setminus \ran(p)\} \\
+& \hspace{2em} \cup\{((0,0,b_{p}),b):b\in B\setminus \ran(p)\} \\
+& \hspace{2em} \cup \{((1,n+1,c),(1,n,c)):n\in\omega\text{ and }c\in C\setminus \ran(p)\} \\
+& \hspace{2em} \cup\{((1,0,c),c):c\in C\setminus \ran(p)\} \cup id_{L_p}
+\end{align*}
+where 
+\begin{equation*}
+L_p=\{(0,n,x):n\in\omega\text{ and } x\in C\setminus\{b_{p}:b\in B\setminus \ran(p)\}\} \cup \{(1,n,x):n\in\omega\text{ and } x\in C\cap\ran(p)\}.
+\end{equation*}
+We can see that each $F(p)$ is a bijection on $A\cup(\{0,1\}\times\omega\times C)$.
+For each $p,q\in I(A)$ such that $F(p)=F(q)$, we have $p=F(p)\restriction A =F(q)\restriction A=q$. Hence, $F$ is an injection. So we have $I(A)\preceq S\bigl(A\cup (\{0,1\}\times\omega\times C)\bigr)$. Since $C\times\omega\approx C$ and $\{0,1\}\times\omega \approx \omega$, $\{0,1\}\times\omega\times C \approx \omega\times C \approx C$. Also, $C\times\omega\approx C$ implies $2 \times C \approx C$. So $C \cup (\{0,1\}\times\omega\times C) \approx 2 \times C \approx C$. Hence, $A\cup (\{0,1\}\times\omega\times C) = B\cup C\cup (\{0,1\}\times\omega\times C) \approx B\cup C=A$. Therefore, $I(A)\preceq S(A)\subseteq I(A)$. So $I(A)\approx S(A)$.
+\end{proof}
+
+Note that for each infinite ordinal $\alpha$, $\alpha\times\omega\approx\alpha$. So we have the following corollary.\\
+
+\begin{corollary}\label{longest}
+For any sets $A$ and $B$, if $A=B \cup \alpha$ where $B$ is a Dedekind-finite set and $\alpha$ is an infinite ordinal or $0$, then $I(A) \approx S(A)$.
+\end{corollary}
+
+
+
+The above theorem leads to the question whether it can be proved in ZF that $I(\mathfrak{m})=S(\mathfrak{m})$ for any infinite cardinal $\mathfrak{m}$.
+
+
+\begin{lemma}\label{lem1}
+    For any sets $C$ and $D$, if $D$ is $\Delta_5$-finite, $C\subseteq D$ and $p:C\to D$ is a surjection, then $C=D$ and $p$ is a bijection on $D$.
+\end{lemma}
+
+\begin{proof}
+    Let $C$ and $D$ be sets such that $C\subsetneq D$ and $p:C\to D$ is a surjection. Pick some $d\in D\setminus C$. Define a function $q:C\to C\cup\{d\}$ by $q(c)=p(c)$ if $p(c)\in C$ and $q(c)=d$ otherwise. Obviously $q$ is a surjection from $C$ onto $C\cup\{d\}$. Thus $C$ is not $\Delta_5$-finite, so $D$ is not $\Delta_5$-finite and we are done. Now, if $C$ and $D$ satisfy the condition of the theorem, then $C=D$ and, by Theorem \ref{JS}, $J(D)=S(D)$ since $D$ is $\Delta_5$-finite. Hence, $p\in S(D)$.
+\end{proof}
+
+\begin{theorem}\label{Sdisjoint}
+For any sets $A$ and $B$, if $A\cap B=\emptyset$ then $S(A)\times S(B)\preceq S(A\cup B)$.
+\end{theorem}
+
+\begin{proof}
+%Cf. \cite[Proposition 2.1]{SonVej18}. 
+If $A\cap B = \emptyset$, then the map $(p,q) \mapsto p\cup q$ for $p\in S(A)$ and $q\in S(B)$ is injective.
+\end{proof}
+
+\begin{theorem}
+   For any set $A$, if $A = B\cup\alpha$ where $B$ is $\Delta_5$-finite and $\alpha$ is an infinite ordinal, then $S(A)\approx J(A)$.
+\end{theorem}
+
+
+\begin{proof}
+    Let $A$ be a set which satisfies the above condition. As $B$ is $\Delta_5$-finite, so is $B\setminus\alpha$. So, without loss of generality, we assume that $B$ and $\alpha$ are disjoint. Fix a countably infinite set $D=\{d_{i}:i\in\omega\}$ such that $d_{i}\neq d_{j}$ for any $i\neq j$, which is disjoint from $\alpha$, for example, $D=\omega\times\{\alpha\}$. Also, fix an injection $F:\mathcal{P}((\alpha\cup D)\times(\alpha\cup D))\to S(\alpha)$. This $F$ exists since $\alpha\cup D\approx \alpha$ (as $\alpha$ is an infinite ordinal) and Theorem 1.2 in \cite{DH} tells us that $\mathcal{P}(\beta)\approx S(\beta)$ for any infinite ordinal $\beta$.
+    
+    Consider each $p\in J(A)$. For each $a\in A$, let $p^{-\infty}_{a}=\{x\in A:p^{n}(x)=a\text{ for some }n\in\omega\}$. Let $B_{p}=\{b\in B:p^{-\infty}_{b}\subseteq B \}$. For each $\theta\in\alpha$, $p(\theta)\not\in B_{p}$ since $\theta\in p_{p(\theta)}^{-\infty}\setminus B$. Also, for each $b\in B\setminus B_{p}$, there are some ordinal $\gamma\in\alpha$ and some $n\in\omega$ such that $p^{n}(\gamma)=b$; so $p(b)\not\in B_{p}$ as $p^{n+1}(\gamma)=p(b)$. Thus $p^{-1}[B_{p}]\subseteq B_{p}$. Since $B$ is $\Delta_5$-finite, so is $B_{p}$. Observe that $p\restriction p^{-1}[B_{p}]$ is a surjection from $p^{-1}[B_{p}]$ to $B_{p}$. Thus $p^{-1}[B_{p}]=B_{p}$ and $p\restriction B_{p}\in S(B_{p})$ by Lemma \ref{lem1}. This also implies that $p\restriction (\alpha\cup(B\setminus B_{p}))\in (\alpha\cup(B\setminus B_{p}))^{(\alpha\cup(B\setminus B_{p}))}$.
+    
+ 
+     Note that $\omega\times\alpha$ is well-ordered by the lexicographic ordering. We define a function from $B\setminus B_{p}$ to $\omega\times\alpha$ by sending $b$ to the least $(n,\gamma)\in\omega\times\alpha$ such that $p^{n}(\gamma)=b$. Clearly this map is injective. So $B\setminus B_{p}$ is well-ordered by the ordering induced by the map. Moreover, since $B$ is Dedekind-finite, so is $B\setminus B_{p}$. As a well-ordered Dedekind-finite set must be finite, we can write $B\setminus B_{p}=\{c_{0},...,c_{k-1}\}$ in an increasing order for some $k\in\omega$. Let 
+     \begin{equation}\label{1}
+         \hat{p}=\biggl(\bigcup_{i<k}\{(i,c_{i}),(c_{i},i)\}\biggr)\cup id_{\omega\setminus k}\cup (p\restriction B_{p}).
+     \end{equation}
+     Define an injection $H:B\setminus B_{p}\to D$ by $H(c_{i})=d_{i}$ for all $i<k$. Let \begin{equation}\label{2}
+       \begin{aligned}
+         \Tilde{p}=&\{(x,p(x)):x,p(x)\in\alpha\}\\&\cup\{(x,H(p(x))):x\in\alpha\text{ and }p(x)\in B\setminus B_{p}\}\\ 
+        &\cup\{(d_{i},p(c_{i})):p(c_{i})\in\alpha,i<k\}\\&\cup\{(d_{i},H(p(c_{i}))):p(c_{i})\in B\setminus B_{p},i<k\}.
+    \end{aligned}
+     \end{equation} Note that $\hat{p}\in S(B\cup\omega)$ and $\Tilde{p}\in \mathcal{P}((\alpha\cup D)\times(\alpha\cup D))$.
+
+    Define a function $G:J(A)\to S(B\cup\omega) \times S(\alpha)$ by $G(p)=(\hat{p},F(\Tilde{p}))$. To see that $G$ is injective, let $p,q\in J(A)$ be such that $G(p)=G(q)$. Then $\hat{p}=\hat{q}$ and, as $F$ is injective, $\Tilde{p}=\Tilde{q}$. Consider (\ref{1}) for $p$ and $q$. Recall that $B\cap\omega=\emptyset$. So, members of $B$ which are sent by $\hat{p}$ to natural numbers are exactly those in $B\setminus B_{p}$. Similarly, the same result holds for $\hat{q}$. As $\hat{p}=\hat{q}$, we obtain $B\setminus B_{p}=B\setminus B_{q}$; thus $B_{p}=B_{q}$. Then, by (\ref{1}) again, we can see that $p\restriction B_{p}=q\restriction B_{q}$. Next, consider (\ref{2}) for $p$ and $q$. Recall that $B\cap\alpha=\emptyset$, $H:B\setminus B_{p}\to D$ is injective, and $B_{p}=B_{q}$. Since $\Tilde{p}=\Tilde{q}$, $p\restriction (A\setminus B_{p})=q\restriction (A\setminus B_{p})$. Hence, $p=q$.
+
+Since $\alpha$ is an infinite ordinal, $(\omega\times\{0\}) \cup (\alpha\times\{1\}) \approx \alpha$. So $((B\cup\omega)\times\{0\})\cup (\alpha\times\{1\}) = (B\cup\{0\}) \cup ((\omega\times\{0\}) \cup (\alpha\times\{1\})) \approx B \cup \alpha = A$, which implies $S(B\cup\omega) \times S(\alpha) \preceq S\bigl(((B\cup\omega)\times\{0\})\cup (\alpha\times\{1\})\bigr)\approx S(A)$. Therefore, $J(A)\preceq S(A)\subseteq J(A)$. Hence, $J(A)\approx S(A)$.
+\end{proof}
+
+
+
+
+\section{Relations with $\seq(A)$ and $\seq^{1-1}(A)$}
+
+In this section, we compare $I(\frak{m})$ and $J(\frak{m})$ for infinite cardinals $\frak{m}$ with each of $\seq(\frak{m})$ and $\seq^{1-1}(\frak{m})$, the cardinalities of $\seq(A) = \bigcup \{A^n : n\in\omega\}$ and $\seq^{1-1}(A) = \{ s\in\seq(A) : s\text{\ is injective}\}$, respectively, where $A$ is a set which is of cardinality $\frak{m}$.
+
+
+
+
+\begin{theorem}\label{all}
+For any cardinal $\frak{m}$, if $\aleph_{0} \leq \mathfrak{m}$ then $\seq^{1-1}(\mathfrak{m})\leq \seq(\mathfrak{m})<S(\mathfrak{m}) \leq I(\mathfrak{m}) \leq J(\mathfrak{m}) \leq \mathfrak{m}^{\mathfrak{m}}$.
+\end{theorem}
+
+\begin{proof}
+This is a direct consequence of Theorem \ref{IJ} together with the fact that $\seq(\frak{m})<S(\frak{m})$ for any Dedekind-infinite cardinal $\frak{m}$ (see \cite[Theorem 2.1]{SonVej2019}).
+\end{proof}
+
+
+\begin{theorem}\label{seq11Sseq}
+For any infinite cardinal $\frak{m}$, $\seq^{1-1}(\mathfrak{m}) \neq S(\mathfrak{m}) \neq \seq(\mathfrak{m})$.
+
+\end{theorem}
+
+\begin{proof}
+See \cite[Theorems 2.2 and 2.4]{SonVej2019}.
+\end{proof}
+
+\begin{theorem}\label{aleph0not} 
+For any cardinal $\frak{m}$, if $\aleph_{0}\not\leq \mathfrak{m}$ then $\aleph_{0}\not\leq \seq^{1-1}(\mathfrak{m})$.
+\end{theorem}
+
+\begin{proof}
+See \cite[Fact 2.14]{Shen}.
+\end{proof}
+
+\begin{theorem}\label{all2}
+For any infinite cardinal $\frak{m}$, if $\aleph_{0}\not\leq\mathfrak{m}$, then $\seq^{1-1}(\mathfrak{m})\neq I(\mathfrak{m}) \neq \seq(\mathfrak{m})$ and $\seq^{1-1}(\mathfrak{m})\neq J(\mathfrak{m})$.
+\end{theorem}
+
+\begin{proof}
+Assume that $\aleph_{0}\not\leq\mathfrak{m}$. Then $I(\mathfrak{m})=S(\mathfrak{m})$ by Theorem \ref{IS}, and the result for $I(\frak{m})$ follows from Theorem \ref{seq11Sseq}. For $J(\frak{m})$, if $J(\mathfrak{m})=S(\mathfrak{m})$ then, again, the result follows from Theorem \ref{seq11Sseq}. Suppose $J(\mathfrak{m})\neq S(\mathfrak{m})$. By Theorem \ref{JSomega}, $\aleph_{0}\leq J(\mathfrak{m})$, but by Theorem \ref{aleph0not}, $\aleph_{0} \not\leq \seq^{1-1}(\mathfrak{m})$. Thus, $\seq^{1-1}(\mathfrak{m})\neq J(\mathfrak{m})$.
+\end{proof}
+
+Let us mention the following theorem about $S(A)$.
+
+\begin{theorem}\label{mult3}
+For any set $A$, if $\omega\preceq S(A)$ then $2^\omega \preceq S(A)$.
+\end{theorem}
+
+\begin{proof}
+See \cite[Theorem 2.3]{SonVej2019}.
+\end{proof}
+
+To show that $\seq(\mathfrak{m})\neq J(\mathfrak{m})$ for any infinite cardinal $\frak{m}$, we need Lemma \ref{2month} below, which might be regarded as an analogous version of Theorem \ref{mult3} above. (Note that $\omega \preceq A$ implies $J(A) \neq S(A)$ by Theorem \ref{JS}.)
+
+
+
+
+\begin{lemma}\label{2month}
+For any set $A$, if $J(A)\neq S(A)$ then $2^\omega \preceq J(A)$.
+\end{lemma}
+
+\begin{proof}
+Suppose that $J(A) \neq S(A)$. By Theorem \ref{JS}, $A$ is not $\Delta_5$. Then there is a surjection $f:A \rightarrow A\cup\{c\}$ for some $c\notin A$. For each $n\in\omega$, let $$A_n = \{x\in A : x\in\dom(f^{n+1}) \text{\ and\ } f^{n+1}(x)=c\}.$$ Observe that for all $m,n\in\omega$ with $m>n$, $f^{m-n}[A_m] = A_n$; indeed, for each $x\in A_{m}$, we have $f^{n+1}(f^{m-n}(x))=f^{m+1}(x)=c$, which implies $f^{m-n}(x)\in A_{n}$. Next, let us show that $\{A_{n}:n\in\omega\}$ is a disjoint family. Consider each $x\in\bigcup_{n\in\omega}A_{n}$. Assume that $t$ is the least natural number such that $x\in A_{t}$. So $f^{t+1}(x)=c$, and thus $x\not\in\dom(f^{l})$ for all $l>t+1$, and hence $x\not\in A_{l}$ for all $l>t$. So $t$ is the unique natural number such that $x\in A_{t}$. That is $A_{n}\cap A_{m}=\emptyset$ for any $n\neq m$. 
+
+We shall construct an injection $F:\mcal{P}(\omega) \rightarrow J(A)$. Consider any $u\subseteq\omega$. We define $F(u)$ as follows. Let $v = \{2k : k\in\omega\} \cup \{2l+1 : l\in\omega\setminus u\}$. Let $a\in A$. If $a\in A_m$ for some $m\in v\setminus\{0\}$, we define 
+$$ F(u)(a) = f^{m-n}(a), $$
+where $n=\max\{i\in v:i<m\}$; otherwise, we define $F(u)(a) = a$.
+
+To show that $F(u) \in J(A)$, let $b\in A$. If $b\in A_n$ for some $n\in v$, since $f^{m-n}[A_m] = A_n$ where $m$ is the least element of $v$ such that $m>n$, there is an $a\in A_m$ such that $f^{m-n}(a)=b$, and hence $F(u)(a) = f^{m-n}(a) = b$, which implies that $b \in \ran(F(u))$. Otherwise, $b = F(u)(b) \in \ran(F(u))$. Hence, $F(u) \in J(A)$.
+
+Finally, $F$ is injective, since for every $u \subseteq \omega$, the set of fixed points of $F(u)$ is exactly $\bigcup_{i\in u} A_{2i+1}$ by our construction. Thus, $2^\omega \approx \mcal{P}(\omega) \preceq J(A)$.
+\end{proof}
+
+\begin{lemma}\label{useful}
+For any set $A$, $S(A\cup\omega)\preceq S(A)\times 2^{\omega}\times \seq(A)$.
+\end{lemma}
+
+\begin{proof}
+For the case that $A$ is Dedekind-infinite, $A\cup\omega\approx A$, and so $S(A\cup\omega)\approx S(A)\preceq S(A)\times 2^{\omega}\times \seq(A)$. For the case that $A$ is Dedekind-finite, see the proof of \cite[Theorem 2.4]{SonVej2019}.
+\end{proof}
+ 
+\begin{theorem}\label{consq2month}
+For any infinite cardinal $\mathfrak{m}$, $\seq(\mathfrak{m})\neq J(\mathfrak{m})$.
+\end{theorem}
+
+\begin{proof}
+Suppose that $A$ is an infinite set such that 
+$\seq(A)\approx J(A)$. By Theorem \ref{seq11Sseq}, $J(A) \neq S(A)$. By Lemma \ref{useful}, we have $S(A\cup\omega)\preceq S(A)\times 2^{\omega}\times \seq(A)$. By Lemma \ref{2month}, we have $$S(A)\times 2^{\omega}\times \seq(A) \preceq J(A) \times J(A) \times \seq(A) \approx \seq(A) \times \seq(A) \times \seq(A) \approx \seq(A).$$ Hence $S(A\cup\omega)\preceq\seq(A)\preceq\seq(A\cup\omega)$, which contradicts Theorem \ref{all}.
+\end{proof}
+
+
+ \begin{corollary}\label{IJseqneq}
+     For any infinite cardinal $\frak{m}$, 
+     \begin{itemize}
+         \item[1)]  $\seq^{1-1}(\frak{m}) \neq I(\frak{m}) \neq \seq(\frak{m})$,
+         \item[2)]  $\seq^{1-1}(\frak{m}) \neq J(\frak{m}) \neq \seq(\frak{m})$.
+     \end{itemize}
+ \end{corollary}
+ 
+ \begin{proof}
+ These are conclusions from Theorems \ref{all}, \ref{all2} and \ref{consq2month}.    
+ \end{proof}
+
+ We shall show in the next chapter that this is the best possible result in ZF.
+
+
+
+
+
+\section{The set of all functions on $A$}
+
+We can see that the results for $I(\frak{m})$ and $J(\frak{m})$ are almost the same as those known results for $S(\frak{m})$ for infinite cardinals $\frak{m}$. Now, we are interested in another related cardinal, the cardinality of the set of all functions on a set $A$. We found that these cardinals are large enough to obtain a definite relationship as shown in the theorem below. In what follows, for any function $p$ on $A$, define $\m(p)=\{a\in A : p(a) \neq a\}$ (the set of non-fixed points of $p$).
+
+\begin{theorem}\label{seq11mpowm}
+For any infinite cardinal $\mathfrak{m}$, $\seq^{1-1}(\mathfrak{m}) < \mathfrak{m}^\mathfrak{m}$.
+\end{theorem}
+
+\begin{proof}
+Let $A$ be an infinite set. Define $F:\seq^{1-1}(A)\to A^{A}$ as follows. Let $F(\emptyset) = id_{A}$. For each $\bar a = \langle a_0,...,a_n \rangle \in \seq^{1-1}(A)$, let $F(\bar a)(a_i) = a_{i+1}$ for $i<n$, and $F(\bar a)(x) = a_0$ for $x\in A\setminus\{a_{i}:i<n\}$; clearly, $F(\bar a) \neq id_{A}$. Therefore, the injectivity of $F$ follows from the following observation: For each $\bar a = \langle a_0,...,a_n \rangle \in \seq^{1-1}(A)$, $a_0$ is the unique element of $A$ such that $\{x\in A : F(\bar a)(x)=a_0\}$ is infinite, $n$ is the least natural number such that $(F(\bar a))^{n+1}(a_0)=a_0$, and $a_i = (F(\bar a))^{i}(a_0)$ for every $i\leq n$.
+
+Now assume that there is a bijection $G:\seq^{1-1}(A)\to A^{A}$.
+Our main goal is to show that $A$ is Dedekind-infinite, and this leads to a contradiction since Theorem \ref{all} says that $\aleph_{0}\leq\mathfrak{m}$ implies $\seq^{1-1}(\mathfrak{m})\neq \mathfrak{m}^{\mathfrak{m}}$. We will define a sequence $\{a_{i}:i\in\omega\}$ of distinct elements in $A$ recursively. Suppose that we have already defined a list of distinct $a_{0},a_{1},\dotsc,a_{n-1}$ for some $n>3$. Let $X=\{a_{0},a_{1},\dotsc,a_{n-1}\}$. We are to define $a_{n}\in A\setminus X$. Let $Y=G[\seq^{1-1}(X)]$. If we can pick some $p\in A^{A}\setminus Y$, then $G^{-1}(p)\notin \seq^{1-1}(X)$ and we can define $a_{n}$ to be the first entry of $G^{-1}(p)$ which is not in $X$. We will show how to pick such $p\in A^{A}\setminus Y$. Let $Z=\{q\in A^{A}:\m(q)\cup q[X]\subseteq X\}$ and define an ordering on $Z$ as follows: For each $p,q\in Z$ such that $p\neq q$, there exists the smallest $i<n$ such that $p(a_{i})\neq q(a_{i})$, say $p(a_{i})=a_{j}$ and $q(a_{i})=a_{k}$, and define $p<q$ if and only if $j<k$. Observe that $|Z|=|X^{X}|=n^{n}>\sum^{n}_{t=0}\frac{n!}{t!}=|\seq^{1-1}(X)|=|Y|$. So we can pick the smallest element in $Z\setminus Y$ as wanted. 
+\end{proof}
+
+The following theorems will be used to show that $\seq(\mathfrak{m})\neq \mathfrak{m}^\mathfrak{m}$ for any infinite cardinal $\frak{m}$.
+
+
+\begin{theorem}\label{weaklydef}
+For a cardinal $\mathfrak{m}$, the following statements are equivalent.\begin{itemize}\itemsep0em
+    \item[1.] $\frak{m}$ is weakly Dedekind-infinite.
+    \item[2.] $\aleph_{0}\leq 2^{\mathfrak{m}}$.
+    \item[3.] $2^{\aleph_{0}}\leq 2^{\mathfrak{m}}$.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+    See \cite[pp. 94-95]{Tarski}. 
+\end{proof}
+
+\begin{theorem}\label{aleph0not3} If $\aleph_{0}\not\leq^{*} \mathfrak{m}$ then $\aleph_{0}\not\leq^{*} \mathfrak{m}^n$ for all $n\in\omega$.
+\end{theorem}
+
+\begin{proof}
+See \cite[Corollary 2.11]{Shen}.
+\end{proof}
+
+The following lemma is analogous to Theorem \ref{mult3}.
+
+\begin{lemma}\label{aleph0mpowm}
+For any cardinal $\frak{m}$, if $\aleph_{0}\leq \mathfrak{m}^{\mathfrak{m}}$, then $\frak{m}$ is weakly Dedekind-infinite, and hence $2^{\aleph_{0}}\leq 2^\mathfrak{m} \leq \mathfrak{m}^{\mathfrak{m}}$.
+\end{lemma}
+
+\begin{proof}
+Suppose that $\aleph_0 \leq \frak{m}^\frak{m}$. Then $\aleph_0 \leq \frak{m}^\frak{m} \leq (2^\frak{m})^\frak{m} = 2^{\frak{m}^2}$, which implies that $\frak{m}^2$ is weakly Dedekind-infinite by Theorem \ref{weaklydef}. By Theorem \ref{aleph0not3}, it follows that $\frak{m}$ is weakly Dedekind-infinite, and hence $2^{\aleph_0} \leq 2^\frak{m} \leq \frak{m}^\frak{m}$ by Theorem \ref{weaklydef}.
+\end{proof}
+
+\begin{theorem}\label{seqneqmpowm}
+For any infinite cardinal $\mathfrak{m}$, $\seq(\mathfrak{m})\neq \mathfrak{m}^{\mathfrak{m}}$.
+\end{theorem}
+
+\begin{proof}
+Let $A$ be an infinite set. Assume to the contrary that $\seq(A)\approx A^{A}$. Note that $\omega\preceq \seq(A)$ for any non-empty set $A$, since the map $n\mapsto\langle \underbrace{a,...,a}_{n}\rangle$ (for any fixed $a\in A$) is an injection from $\omega$ to $\seq(A)$. Thus $\omega\preceq \seq(A)\approx A^{A}$. By Lemma \ref{aleph0mpowm}, $2^{\omega}\preceq A^{A}$. From Lemma \ref{useful}, we have that $S(A\cup\omega)\preceq S(A)\times2^{\omega}\times \seq(A)$. So $S(A\cup\omega)\preceq A^{A}\times A^{A}\times \seq(A)\approx \seq(A)\times \seq(A) \times \seq(A)\approx \seq(A)\preceq \seq(A\cup\omega)$. That is $A\cup\omega$ is a Dedekind-infinite set such that $S(A\cup\omega)\preceq \seq(A\cup\omega)$, which contradicts Theorem \ref{all}.
+\end{proof}
+
+We shall show in the next chapter that the results in Theorems \ref{seq11mpowm} and \ref{seqneqmpowm} are the best possible relationships between each of $\seq^{1-1}(\mathfrak{m})$ and $\seq(\mathfrak{m})$ and $\mathfrak{m}^{\mathfrak{m}}$ in ZF.
+
